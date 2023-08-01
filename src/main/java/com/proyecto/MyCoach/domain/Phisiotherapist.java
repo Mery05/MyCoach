@@ -1,4 +1,4 @@
-package com.svalero.MyCoach.domain;
+package com.proyecto.MyCoach.domain;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@Entity (name = "headquarter")
-public class Headquarter {
+@Entity (name = "phisiotherapist")
+public class Phisiotherapist {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
@@ -17,5 +17,6 @@ public class Headquarter {
     @Column
     private String name;
     @Column
-    private String city;
+    private boolean available;
+
 }

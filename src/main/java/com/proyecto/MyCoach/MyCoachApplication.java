@@ -1,4 +1,4 @@
-package com.svalero.MyCoach;
+package com.proyecto.MyCoach;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

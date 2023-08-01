@@ -1,4 +1,4 @@
-package com.svalero.MyCoach.domain;
+package com.proyecto.MyCoach.domain;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

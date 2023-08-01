@@ -1,4 +1,4 @@
-package com.svalero.MyCoach.domain;
+package com.proyecto.MyCoach.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
@@ -8,17 +8,20 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Data
-@Entity (name = "booking")
-public class Booking {
+@Entity (name = "user")
+public class User {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private long id;
-    @Column (name = "booking_date")
-    @JsonFormat (pattern = "dd-MM-yyyy")
-    private LocalDate bookingDate;
-
+    @Column
+    private String name;
+    @Column
+    private String surname;
+    @Column (name = "fecha_nacimiento")
+    @JsonFormat(pattern = "dd-MM-yyyy")
+    private LocalDate birthDate;
 }
