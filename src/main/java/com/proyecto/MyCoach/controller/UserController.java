@@ -1,8 +1,12 @@
 package com.proyecto.MyCoach.controller;
 
 import com.proyecto.MyCoach.domain.User;
+import com.proyecto.MyCoach.exception.ErrorMessage;
+import com.proyecto.MyCoach.exception.UserNotFoundException;
 import com.proyecto.MyCoach.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,34 +18,40 @@ public class UserController {
     private UserService userService;
 
     @GetMapping ("/users")
-    public List<User> getUsers(){
+    public ResponseEntity<List<User>> getUsers(){
         List<User> users;
         users = userService.findAllUsers();
 
-        return users;
+        return ResponseEntity.ok(users);
     }
 
     @GetMapping ("/user/{id}")
-    public User getUserById (@PathVariable long id){
+    public ResponseEntity <User> getUserById (@PathVariable long id) throws UserNotFoundException{
         User user = userService.findById(id);
-        return user;
+        return ResponseEntity.ok(user);
     }
 
     @PostMapping ("/user")
-    public User addUser (@RequestBody User user){
+    public ResponseEntity<User> addUser (@RequestBody User user){
         User newUser = userService.addUser(user);
-        return newUser;
+        return ResponseEntity.status(HttpStatus.CREATED).body(newUser);
     }
 
     @DeleteMapping ("/user/{id}")
-    public User deleteUser (@PathVariable long id){
+    public ResponseEntity<User> deleteUser (@PathVariable long id)throws UserNotFoundException{
         User user = userService.deleteUser(id);
-        return user;
+        return ResponseEntity.noContent().build();
     }
 
     @PutMapping ("user/{id}")
-    public User modifyUser (@RequestBody User user, @PathVariable long id){
+    public ResponseEntity<User> modifyUser (@RequestBody User user, @PathVariable long id) throws UserNotFoundException{
         User newUser = userService.modifyUser(user, id);
-        return newUser;
+        return ResponseEntity.status(HttpStatus.OK).body(newUser);
+    }
+
+    @ExceptionHandler(UserNotFoundException.class)
+    public ResponseEntity<ErrorMessage> userNotFoundException (UserNotFoundException unfe){
+        ErrorMessage errorMessage = new ErrorMessage(404, unfe.getMessage());
+        return new ResponseEntity(errorMessage, HttpStatus.NOT_FOUND);
     }
 }
