@@ -7,9 +7,14 @@ import com.proyecto.MyCoach.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class UserController {
@@ -32,7 +37,7 @@ public class UserController {
     }
 
     @PostMapping ("/user")
-    public ResponseEntity<User> addUser (@RequestBody User user){
+    public ResponseEntity<User> addUser (@Validated @RequestBody User user){
         User newUser = userService.addUser(user);
         return ResponseEntity.status(HttpStatus.CREATED).body(newUser);
     }
@@ -53,5 +58,16 @@ public class UserController {
     public ResponseEntity<ErrorMessage> userNotFoundException (UserNotFoundException unfe){
         ErrorMessage errorMessage = new ErrorMessage(404, unfe.getMessage());
         return new ResponseEntity(errorMessage, HttpStatus.NOT_FOUND);
+    }
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<ErrorMessage> handleBadRequestException(MethodArgumentNotValidException manve){
+        Map<String, String> errors = new HashMap<>();
+        manve.getBindingResult().getAllErrors().forEach(error -> {
+            String fieldName = ((FieldError) error).getField();
+            String message = error.getDefaultMessage();
+            errors.put(fieldName, message);
+        });
+        ErrorMessage badRequestMensajeError = new ErrorMessage(400, "Bad Request", errors);
+        return new ResponseEntity<>(badRequestMensajeError, HttpStatus.BAD_REQUEST);
     }
 }
