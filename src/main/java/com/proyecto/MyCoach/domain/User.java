@@ -27,7 +27,7 @@ public class User {
     @Column
     @NotNull
     private String surname;
-    @Column (name = "fecha_nacimiento")
+    @Column (name = "birth_date")
     @NotNull
     @JsonFormat(pattern = "dd-MM-yyyy")
     private LocalDate birthDate;

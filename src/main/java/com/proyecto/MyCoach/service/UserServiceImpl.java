@@ -16,6 +16,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> findAllUsers() {
+
         return userRepository.findAll();
     }
 
@@ -27,6 +28,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User addUser(User user) {
+
         return userRepository.save(user);
     }
 
@@ -37,6 +39,8 @@ public class UserServiceImpl implements UserService {
         user.setName(newUser.getName());
         user.setSurname(newUser.getSurname());
         user.setBirthDate(newUser.getBirthDate());
+        user.setWeight(newUser.getWeight());
+        user.setActive(newUser.isActive());
         return userRepository.save(user);
     }
 

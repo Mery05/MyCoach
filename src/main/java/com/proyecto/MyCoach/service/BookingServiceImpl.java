@@ -1,7 +1,7 @@
 package com.proyecto.MyCoach.service;
 
 import com.proyecto.MyCoach.domain.Booking;
-import com.proyecto.MyCoach.domain.Trainer;
+import com.proyecto.MyCoach.exception.BookingNotFoundException;
 import com.proyecto.MyCoach.repository.BookingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,21 +17,25 @@ public class BookingServiceImpl implements BookingService{
 
     @Override
     public List<Booking> findAllBookings() {
+
         return bookingRepository.findAll();
     }
 
     @Override
-    public Booking findById(Long id) {
+    public Booking findById(Long id) throws BookingNotFoundException {
         return bookingRepository.findById(id)
-                .orElseThrow(null);
+                .orElseThrow(BookingNotFoundException::new);
     }
 
     @Override
-    public Booking modifyBooking(Long id, Booking newBooking) {
+    public Booking modifyBooking(Booking newBooking, Long id) throws BookingNotFoundException{
         Booking booking = bookingRepository.findById(id)
-                .orElseThrow(null);
+                .orElseThrow(BookingNotFoundException::new);
         booking.setBookingDate(newBooking.getBookingDate());
         booking.setStartTime(newBooking.getStartTime());
+        booking.setDuration(newBooking.getDuration());
+        booking.setTools(newBooking.isTools());
+        booking.setPaid(newBooking.isPaid());
 
         return bookingRepository.save(booking);
     }
@@ -43,9 +47,9 @@ public class BookingServiceImpl implements BookingService{
     }
 
     @Override
-    public Booking deleteBooking(Long id) {
+    public Booking deleteBooking(Long id) throws BookingNotFoundException{
         Booking booking = bookingRepository.findById(id)
-                .orElseThrow(null);
+                .orElseThrow(BookingNotFoundException::new);
         bookingRepository.delete(booking);
         return booking;
     }

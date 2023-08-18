@@ -1,6 +1,7 @@
 package com.proyecto.MyCoach.service;
 
 import com.proyecto.MyCoach.domain.Phisiotherapist;
+import com.proyecto.MyCoach.exception.PhisiotherapistNotFoundException;
 import com.proyecto.MyCoach.repository.PhisiotherapistRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,13 +16,14 @@ public class PhisiotherapistServiceImpl implements PhisiotherapistService{
 
     @Override
     public List<Phisiotherapist> findAllPhisiotherapist() {
+
         return phisiotherapistRepository.findAll();
     }
 
     @Override
-    public Phisiotherapist findById(Long id) {
+    public Phisiotherapist findById(Long id) throws PhisiotherapistNotFoundException {
         return phisiotherapistRepository.findById(id)
-                .orElseThrow(null);
+                .orElseThrow(PhisiotherapistNotFoundException::new);
     }
 
     @Override
@@ -30,19 +32,22 @@ public class PhisiotherapistServiceImpl implements PhisiotherapistService{
     }
 
     @Override
-    public Phisiotherapist modifyPhisiotherapist(Phisiotherapist newPhisiotherapist, Long id) {
+    public Phisiotherapist modifyPhisiotherapist(Phisiotherapist newPhisiotherapist, Long id) throws PhisiotherapistNotFoundException{
         Phisiotherapist phisiotherapist = phisiotherapistRepository.findById(id)
-                .orElseThrow(null);
+                .orElseThrow(PhisiotherapistNotFoundException::new);
         phisiotherapist.setName(newPhisiotherapist.getName());
+        phisiotherapist.setSurname(newPhisiotherapist.getSurname());
+        phisiotherapist.setHiringDate(newPhisiotherapist.getHiringDate());
         phisiotherapist.setAvailable(newPhisiotherapist.isAvailable());
+        phisiotherapist.setPrice(newPhisiotherapist.getPrice());
 
         return phisiotherapistRepository.save(phisiotherapist);
     }
 
     @Override
-    public Phisiotherapist deletePhisiotherapist(Long id) {
+    public Phisiotherapist deletePhisiotherapist(Long id) throws PhisiotherapistNotFoundException{
         Phisiotherapist phisiotherapist = phisiotherapistRepository.findById(id)
-                .orElseThrow(null);
+                .orElseThrow(PhisiotherapistNotFoundException::new);
         phisiotherapistRepository.delete(phisiotherapist);
         return phisiotherapist;
     }

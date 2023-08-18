@@ -67,7 +67,7 @@ public class UserController {
             String message = error.getDefaultMessage();
             errors.put(fieldName, message);
         });
-        ErrorMessage badRequestMensajeError = new ErrorMessage(400, "Bad Request", errors);
-        return new ResponseEntity<>(badRequestMensajeError, HttpStatus.BAD_REQUEST);
+        ErrorMessage badRequestErrorMessage = new ErrorMessage(400, "Bad Request", errors);
+        return new ResponseEntity<>(badRequestErrorMessage, HttpStatus.BAD_REQUEST);
     }
 }

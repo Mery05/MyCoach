@@ -18,4 +18,11 @@ public class Headquarter {
     private String name;
     @Column
     private String city;
+    @Column
+    private String address;
+    @Column (name = "enrollment_number")
+    private int enrollmentNumber;
+    @Column (name = "class_number")
+    private int classNumber;
+
 }
