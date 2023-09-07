@@ -1,8 +1,11 @@
 package com.proyecto.MyCoach.controller;
 
+import com.proyecto.MyCoach.domain.Headquarter;
 import com.proyecto.MyCoach.domain.Trainer;
 import com.proyecto.MyCoach.exception.ErrorMessage;
+import com.proyecto.MyCoach.exception.HeadquarterNotFoundException;
 import com.proyecto.MyCoach.exception.TrainerNotFoundException;
+import com.proyecto.MyCoach.service.HeadquarterService;
 import com.proyecto.MyCoach.service.TrainerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,6 +25,9 @@ public class TrainerController {
     @Autowired
     private TrainerService trainerService;
 
+    @Autowired
+    private HeadquarterService headquarterService;
+
     @GetMapping("/trainers")
     public ResponseEntity<List<Trainer>> getTrainers(){
         List<Trainer> trainers;
@@ -36,9 +42,10 @@ public class TrainerController {
         return ResponseEntity.ok(trainer);
     }
 
-    @PostMapping("/trainer")
-    public ResponseEntity<Trainer> addTrainer (@Validated @RequestBody Trainer trainer){
-        Trainer newTrainer = trainerService.addTrainer(trainer);
+    @PostMapping("/headquarter/{headquarterId}/trainer")
+    public ResponseEntity<Trainer> addTrainer (@Validated @RequestBody Trainer trainer, @PathVariable long headquarterId) throws TrainerNotFoundException, HeadquarterNotFoundException {
+        Headquarter headquarter = headquarterService.findById(headquarterId);
+        Trainer newTrainer = trainerService.addTrainer(trainer, headquarter);
         return ResponseEntity.status(HttpStatus.CREATED).body(newTrainer);
     }
 

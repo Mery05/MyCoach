@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
@@ -24,5 +26,11 @@ public class Headquarter {
     private int enrollmentNumber;
     @Column (name = "class_number")
     private int classNumber;
+
+    @OneToMany(mappedBy = "headquarter", cascade = CascadeType.ALL)
+    private List<Trainer> trainers;
+
+    @OneToMany(mappedBy = "headquarter", cascade = CascadeType.ALL)
+    private List<Phisiotherapist> phisiotherapists;
 
 }

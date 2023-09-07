@@ -1,6 +1,8 @@
 package com.proyecto.MyCoach.service;
 
+import com.proyecto.MyCoach.domain.Headquarter;
 import com.proyecto.MyCoach.domain.Trainer;
+import com.proyecto.MyCoach.exception.HeadquarterNotFoundException;
 import com.proyecto.MyCoach.exception.TrainerNotFoundException;
 import com.proyecto.MyCoach.repository.TrainerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +29,8 @@ public class TrainerServiceImpl implements TrainerService{
     }
 
     @Override
-    public Trainer addTrainer(Trainer trainer) {
-
+    public Trainer addTrainer(Trainer trainer, Headquarter headquarter) throws TrainerNotFoundException, HeadquarterNotFoundException {
+        trainer.setHeadquarter(headquarter);
         return trainerRepository.save(trainer);
     }
 
@@ -41,6 +43,7 @@ public class TrainerServiceImpl implements TrainerService{
         trainer.setHiringDate(newTrainer.getHiringDate());
         trainer.setAvailable(newTrainer.isAvailable());
         trainer.setPrice(newTrainer.getPrice());
+        trainer.setHeadquarter(newTrainer.getHeadquarter());
         return trainerRepository.save(trainer);
     }
 

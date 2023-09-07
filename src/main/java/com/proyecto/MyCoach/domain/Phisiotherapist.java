@@ -1,5 +1,6 @@
 package com.proyecto.MyCoach.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Pattern;
@@ -8,6 +9,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -30,5 +32,12 @@ public class Phisiotherapist {
     @Column
     private float price;
 
+    @OneToMany(mappedBy = "phisiotherapist", cascade = CascadeType.ALL)
+    private List<Booking> bookingsPhisio;
+
+    @ManyToOne
+    @JoinColumn (name = "headquarter_id")
+    @JsonBackReference("value = headquarter-phiotherapist")
+    private Headquarter headquarter;
 
 }

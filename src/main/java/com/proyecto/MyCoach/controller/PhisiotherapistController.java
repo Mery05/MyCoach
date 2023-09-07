@@ -1,8 +1,11 @@
 package com.proyecto.MyCoach.controller;
 
+import com.proyecto.MyCoach.domain.Headquarter;
 import com.proyecto.MyCoach.domain.Phisiotherapist;
 import com.proyecto.MyCoach.exception.ErrorMessage;
+import com.proyecto.MyCoach.exception.HeadquarterNotFoundException;
 import com.proyecto.MyCoach.exception.PhisiotherapistNotFoundException;
+import com.proyecto.MyCoach.service.HeadquarterService;
 import com.proyecto.MyCoach.service.PhisiotherapistService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,6 +25,9 @@ public class PhisiotherapistController {
     @Autowired
     private PhisiotherapistService phisiotherapistService;
 
+    @Autowired
+    private HeadquarterService headquarterService;
+
     @GetMapping("/phisiotherapists")
     public ResponseEntity<List<Phisiotherapist>> getPhisiotherapist(){
         List<Phisiotherapist> phisiotherapists;
@@ -36,9 +42,10 @@ public class PhisiotherapistController {
         return ResponseEntity.ok(phisiotherapist);
     }
 
-    @PostMapping("/phisiotherapist")
-    public ResponseEntity<Phisiotherapist> addPhisiotherapist (@Validated @RequestBody Phisiotherapist phisiotherapist){
-        Phisiotherapist newPhisiotherapis = phisiotherapistService.addPhisiotherapist(phisiotherapist);
+    @PostMapping("/headquarter/{headquarterId}/phisiotherapist")
+    public ResponseEntity<Phisiotherapist> addPhisiotherapist (@Validated @RequestBody Phisiotherapist phisiotherapist, @PathVariable long headquarterId) throws PhisiotherapistNotFoundException, HeadquarterNotFoundException {
+        Headquarter headquarter = headquarterService.findById(headquarterId);
+        Phisiotherapist newPhisiotherapis = phisiotherapistService.addPhisiotherapist(phisiotherapist, headquarter);
         return ResponseEntity.status(HttpStatus.CREATED).body(newPhisiotherapis);
     }
 

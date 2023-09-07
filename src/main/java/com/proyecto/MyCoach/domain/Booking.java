@@ -1,5 +1,6 @@
 package com.proyecto.MyCoach.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -29,4 +30,19 @@ public class Booking {
     private boolean tools;
     @Column
     private boolean paid;
+
+    @ManyToOne
+    @JoinColumn (name = "user_id")
+    @JsonBackReference ("value = user-booking")
+    private User user;
+
+    @ManyToOne
+    @JoinColumn (name = "trainer_id")
+    @JsonBackReference ("value = trainer-booking")
+    private Trainer trainer;
+
+    @ManyToOne
+    @JoinColumn (name = "phisiotherapist_id")
+    @JsonBackReference ("value = phisiotherapist-booking")
+    private Phisiotherapist phisiotherapist;
 }

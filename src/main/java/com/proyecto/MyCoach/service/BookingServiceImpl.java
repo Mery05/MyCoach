@@ -1,8 +1,13 @@
 package com.proyecto.MyCoach.service;
 
 import com.proyecto.MyCoach.domain.Booking;
+import com.proyecto.MyCoach.domain.Phisiotherapist;
+import com.proyecto.MyCoach.domain.Trainer;
+import com.proyecto.MyCoach.domain.User;
 import com.proyecto.MyCoach.exception.BookingNotFoundException;
 import com.proyecto.MyCoach.repository.BookingRepository;
+import com.proyecto.MyCoach.repository.TrainerRepository;
+import com.proyecto.MyCoach.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +18,10 @@ public class BookingServiceImpl implements BookingService{
 
     @Autowired
     private BookingRepository bookingRepository;
+    @Autowired
+    private UserRepository userRepository;
+    @Autowired
+    private TrainerRepository trainerRepository;
 
 
     @Override
@@ -41,9 +50,17 @@ public class BookingServiceImpl implements BookingService{
     }
 
     @Override
-    public Booking addBooking(Booking booking) {
+    public Booking addBookingTrainer(Booking booking, User user, Trainer trainer) {
+        booking.setUser(user);
+        booking.setTrainer(trainer);
         return bookingRepository.save(booking);
 
+    }
+    @Override
+    public Booking addBookingPhisio(Booking booking, User user, Phisiotherapist phisiotherapist) {
+        booking.setUser(user);
+        booking.setPhisiotherapist(phisiotherapist);
+        return bookingRepository.save(booking);
     }
 
     @Override

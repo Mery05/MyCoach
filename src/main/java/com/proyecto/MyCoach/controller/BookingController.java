@@ -1,8 +1,13 @@
 package com.proyecto.MyCoach.controller;
 
 import com.proyecto.MyCoach.domain.Booking;
-import com.proyecto.MyCoach.exception.BookingNotFoundException;
-import com.proyecto.MyCoach.exception.ErrorMessage;
+import com.proyecto.MyCoach.domain.Phisiotherapist;
+import com.proyecto.MyCoach.domain.Trainer;
+import com.proyecto.MyCoach.domain.User;
+import com.proyecto.MyCoach.exception.*;
+import com.proyecto.MyCoach.repository.PhisiotherapistRepository;
+import com.proyecto.MyCoach.repository.TrainerRepository;
+import com.proyecto.MyCoach.repository.UserRepository;
 import com.proyecto.MyCoach.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,6 +27,14 @@ public class BookingController {
     @Autowired
     private BookingService bookingService;
 
+    @Autowired
+    private UserRepository userRepository;
+    @Autowired
+    private TrainerRepository trainerRepository;
+
+    @Autowired
+    private PhisiotherapistRepository phisiotherapistRepository;
+
     @GetMapping("/bookings")
     public ResponseEntity<List<Booking>> getBookings(){
         List<Booking> bookings;
@@ -36,9 +49,25 @@ public class BookingController {
         return ResponseEntity.ok(booking);
     }
 
-    @PostMapping("/booking")
-    public ResponseEntity<Booking> addBooking (@Validated @RequestBody Booking booking){
-        Booking newBooking = bookingService.addBooking(booking);
+    @PostMapping("/user/{userId}/trainer/{trainerId}/booking")
+    public ResponseEntity<Booking> addBookingTrainer (@Validated @RequestBody Booking booking, @PathVariable long userId, @PathVariable long trainerId) throws UserNotFoundException, TrainerNotFoundException {
+        User user = userRepository.findById(userId)
+                .orElseThrow(UserNotFoundException::new);
+        Trainer trainer = trainerRepository.findById(trainerId)
+                .orElseThrow(TrainerNotFoundException::new);
+
+        Booking newBooking = bookingService.addBookingTrainer(booking, user, trainer);
+        return ResponseEntity.status(HttpStatus.CREATED).body(newBooking);
+    }
+
+    @PostMapping("/user/{userId}/phisiotherapist/{phisiotherapistId}/booking")
+    public ResponseEntity<Booking> addBookingPhisio (@Validated @RequestBody Booking booking, @PathVariable long userId, @PathVariable long phisiotherapistId) throws UserNotFoundException, PhisiotherapistNotFoundException {
+        User user = userRepository.findById(userId)
+                .orElseThrow(UserNotFoundException::new);
+        Phisiotherapist phisiotherapist = phisiotherapistRepository.findById(phisiotherapistId)
+                .orElseThrow(PhisiotherapistNotFoundException::new);
+
+        Booking newBooking = bookingService.addBookingPhisio(booking, user, phisiotherapist);
         return ResponseEntity.status(HttpStatus.CREATED).body(newBooking);
     }
 

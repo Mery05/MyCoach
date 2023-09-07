@@ -10,6 +10,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -37,4 +38,7 @@ public class User {
     @Column
     @NotNull
     private boolean active;
+
+    @OneToMany (mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Booking> bookings;
 }
