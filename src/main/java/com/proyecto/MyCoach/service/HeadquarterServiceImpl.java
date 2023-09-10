@@ -1,6 +1,7 @@
 package com.proyecto.MyCoach.service;
 
 import com.proyecto.MyCoach.domain.Headquarter;
+import com.proyecto.MyCoach.domain.Phisiotherapist;
 import com.proyecto.MyCoach.exception.HeadquarterNotFoundException;
 import com.proyecto.MyCoach.repository.HeadquarterRepositoy;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,6 @@ public class HeadquarterServiceImpl implements HeadquarterService{
 
     @Override
     public List<Headquarter> findAllHeadquarters() {
-
         return headquarterRepositoy.findAll();
     }
 
@@ -25,6 +25,7 @@ public class HeadquarterServiceImpl implements HeadquarterService{
         return headquarterRepositoy.findById(id)
                 .orElseThrow(HeadquarterNotFoundException::new);
     }
+
 
     @Override
     public Headquarter addHeadquarter(Headquarter headquarter) {

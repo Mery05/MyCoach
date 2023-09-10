@@ -23,6 +23,11 @@ public class PhisiotherapistServiceImpl implements PhisiotherapistService{
     }
 
     @Override
+    public List<Phisiotherapist> findByHeadquarter(int phisiotherapistId) {
+        return phisiotherapistRepository.findByHeadquarterId(phisiotherapistId);
+    }
+
+    @Override
     public Phisiotherapist findById(Long id) throws PhisiotherapistNotFoundException {
         return phisiotherapistRepository.findById(id)
                 .orElseThrow(PhisiotherapistNotFoundException::new);

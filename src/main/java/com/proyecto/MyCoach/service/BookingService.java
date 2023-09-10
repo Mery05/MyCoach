@@ -14,6 +14,7 @@ public interface BookingService {
     List<Booking> findAllBookings();
 
     Booking findById(Long id) throws BookingNotFoundException;
+    List<Booking> findByTrainer(int id);
 
     Booking modifyBooking(Booking booking, Long id) throws BookingNotFoundException;
 

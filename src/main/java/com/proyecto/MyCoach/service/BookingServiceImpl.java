@@ -37,6 +37,12 @@ public class BookingServiceImpl implements BookingService{
     }
 
     @Override
+    public List<Booking> findByTrainer(int bookingId) {
+
+        return bookingRepository.findByTrainerId(bookingId);
+    }
+
+    @Override
     public Booking modifyBooking(Booking newBooking, Long id) throws BookingNotFoundException{
         Booking booking = bookingRepository.findById(id)
                 .orElseThrow(BookingNotFoundException::new);
