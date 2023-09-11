@@ -1,0 +1,1399 @@
+openapi: "3.0.3"
+servers:
+  - url: https://localhost:8080
+info:
+  version: "1.0.0"
+  title: "MyCoach"
+  description: Api para gestionar una empresa de entrenamiento personal y fisioterapia
+
+tags:
+  - name: Headquarter
+    description: Operations with headquarters.
+  - name: User
+    description: Operations with users.
+  - name: Booking
+    description: Operations with bookings.
+  - name: Trainer
+    description: Operations with trainers
+  - name: Phisiotherapist
+    description: Operations with phisiotherapist.
+
+paths:
+  /bookings:
+    get:
+      tags:
+        - Booking
+      summary: Lista de reservas.
+      description: Muestra una lista de reservas.
+      operationId: getBookings
+      parameters:
+        - name: bookingDate
+          in: query
+          description: fecha de la reserva
+          required: true
+          schema:
+            type: string
+          example:
+            value: 15-09-2016
+        - name: startTime
+          in: query
+          description: hora de la reserva
+          required: false
+          schema:
+            type: string
+          example:
+            value: 14:30
+        - name: duration
+          in: query
+          description: duracion de la clase
+          required: false
+          schema:
+            type: integer
+          example:
+            value: 60
+        - name: tools
+          in: query
+          description: equipamiento para la sesion
+          required: false
+          schema:
+            type: boolean
+            default: false
+          example:
+            Ejemplo 1:
+              value: false
+            Ejemplo 2:
+              value: true
+        - name: paid
+          in: query
+          description: sesion pagada
+          required: false
+          schema:
+            type: boolean
+            default: false
+          example:
+            Ejemplo 1:
+              value: false
+            Ejemplo 2:
+              value: true
+        - name: trainer-booking
+          in: query
+          description: "Filtro para buscar por entrenador"
+          schema:
+            type: string
+      responses:
+        200:
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Booking"
+        '400':
+          description: Hay un error en la consulta, algún aspecto de la solicitud no es válido.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        404:
+          description: El recurso de destino no existe. La URL no está bien formada o se ha suprimido el recurso.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NotFound"
+        500:
+          description: Error interno del servidor.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InternalServerError"
+    post:
+      tags:
+        - Booking
+      summary: Insertar una reserva
+      description: Añadir una nueva reserva a la base de datos.
+      operationId: addBooking
+      requestBody:
+        description: Registra una nueva reserva
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BookingIn'
+      responses:
+        '201':
+          description: Se ha registrado correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Booking'
+        '400':
+          description: Hay un error en la consulta, algún aspecto de la solicitud no es válido.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestValidation'
+        '500':
+          description: Error interno del servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+  /booking/{id}:
+    get:
+      tags:
+        - Booking
+      summary: Muestra una reserva
+      description: Muestra la información de una reserva determinad por su ID.
+      operationId: getBooking
+      parameters:
+        - name: id
+          in: path
+          description: Id de la reserva
+          required: true
+          schema:
+            type: number
+            format: int64
+            example: 1
+      responses:
+        200:
+          description: ok
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Booking"
+        '400':
+          description: Hay un error en la consulta, algún aspecto de la solicitud no es válido.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        404:
+          description: El recurso de destino no existe. La URI no está bien formado o se ha suprimido el recurso.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NotFound"
+        500:
+          description: Error interno del servidor.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InternalServerError"
+    delete:
+      tags:
+        - Booking
+      summary: Elimina una reserva
+      description: Elimina la información de una reserva determinada por su ID.
+      operationId: deleteBooking
+      parameters:
+        - name: id
+          in: path
+          description: Id de la reserva
+          required: true
+          schema:
+            type: number
+            format: int64
+            example: 1
+      responses:
+        204:
+          description: No content
+        '400':
+          description: Hay un error en la consulta, algún aspecto de la solicitud no es válido.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        404:
+          description: El recurso de destino no existe. La URI no está bien formado o se ha suprimido el recurso.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NotFound"
+        500:
+          description: Error interno del servidor.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InternalServerError"
+    put:
+      tags:
+        - Booking
+      summary: Modificar una reserva
+      description: Modificar la infomación de una reserva en la base de datos.
+      operationId: modifyBooking
+      parameters:
+        - name: id
+          in: path
+          description: Id de la reserva
+          required: true
+          schema:
+            type: number
+            format: int64
+            example: 1
+      requestBody:
+        description: Nuevos datos de la reserva
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BookingIn'
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Booking'
+        '400':
+          description: Hay un error en la consulta, algún aspecto de la solicitud no es válido.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestValidation'
+        404:
+          description: El recurso de destino no existe. La URI no está bien formado o se ha suprimido el recurso.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NotFound"
+        '500':
+          description: Error interno del servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+  /headquarters:
+    get:
+      tags:
+        - Headquarter
+      summary: Lista de centros.
+      description: Muestra una lista de centros.
+      operationId: getHeadquarters
+      parameters:
+        - name: name
+          in: query
+          description: Nombre del centro
+          required: true
+          schema:
+            type: string
+          example:
+            value: Gim Plaza
+        - name: ciudad
+          in: query
+          description: ciudad en la que está localizado el centro
+          required: false
+          schema:
+            type: string
+          example:
+            value: Vigo
+        - name: address
+          in: query
+          description: direccion del centro
+          required: false
+          schema:
+            type: string
+          example:
+            value: calle Gran Via 12
+        - name: enrollmentNumber
+          in: query
+          description: numero de trabajadores del centro
+          required: false
+          schema:
+            type: number
+          example:
+            value: 45
+      responses:
+        200:
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Headquarter"
+        '400':
+          description: Hay un error en la consulta, algún aspecto de la solicitud no es válido.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        404:
+          description: El recurso de destino no existe. La URL no está bien formada o se ha suprimido el recurso.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NotFound"
+        500:
+          description: Error interno del servidor.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InternalServerError"
+    post:
+      tags:
+        - Headquarter
+      summary: Insertar un nuevo centro
+      description: Añadir un nuevo centro a la base de datos.
+      operationId: addHeadquarter
+      requestBody:
+        description: Registra un nuevo centro
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HeadquarterIn'
+      responses:
+        '201':
+          description: Se ha registrado correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Headquarter'
+        '400':
+          description: Hay un error en la consulta, algún aspecto de la solicitud no es válido.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestValidation'
+        '500':
+          description: Error interno del servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+  /headquarter/{id}:
+    get:
+      tags:
+        - Headquarter
+      summary: Muestra un centro
+      description: Muestra la información de un centro determinad por su ID.
+      operationId: getHeadquarter
+      parameters:
+        - name: id
+          in: path
+          description: Id del centro
+          required: true
+          schema:
+            type: number
+            format: int64
+            example: 1
+      responses:
+        200:
+          description: ok
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Headquarter"
+        '400':
+          description: Hay un error en la consulta, algún aspecto de la solicitud no es válido.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        404:
+          description: El recurso de destino no existe. La URI no está bien formado o se ha suprimido el recurso.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NotFound"
+        500:
+          description: Error interno del servidor.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InternalServerError"
+    delete:
+      tags:
+        - Headquarter
+      summary: Elimina un centro
+      description: Elimina la información de un centro determinado por su ID.
+      operationId: deleteHeadquarter
+      parameters:
+        - name: id
+          in: path
+          description: Id del centro
+          required: true
+          schema:
+            type: number
+            format: int64
+            example: 1
+      responses:
+        204:
+          description: No content
+        '400':
+          description: Hay un error en la consulta, algún aspecto de la solicitud no es válido.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        404:
+          description: El recurso de destino no existe. La URI no está bien formado o se ha suprimido el recurso.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NotFound"
+        500:
+          description: Error interno del servidor.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InternalServerError"
+    put:
+      tags:
+        - Headquarter
+      summary: Modificar un centro
+      description: Modificar la infomación de un entrenador en la base de datos.
+      operationId: modifyHeadquarter
+      parameters:
+        - name: id
+          in: path
+          description: Id del centro
+          required: true
+          schema:
+            type: number
+            format: int64
+            example: 1
+      requestBody:
+        description: Nuevos datos del centro
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HeadquarterIn'
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Headquarter'
+        '400':
+          description: Hay un error en la consulta, algún aspecto de la solicitud no es válido.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestValidation'
+        404:
+          description: El recurso de destino no existe. La URI no está bien formado o se ha suprimido el recurso.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NotFound"
+        '500':
+          description: Error interno del servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+  /trainers:
+    get:
+      tags:
+        - Trainer
+      summary: Lista de entrenadores.
+      description: Muestra una lista de entrenadores.
+      operationId: getTrainers
+      parameters:
+        - name: name
+          in: query
+          description: Nombre del entrenador
+          required: true
+          schema:
+            type: string
+          example:
+            value: Tomas
+        - name: surname
+          in: query
+          description: Apellido del entrenador
+          required: false
+          schema:
+            type: string
+          example:
+            value: Perez
+        - name: hiringDate
+          in: query
+          description: Fecha de contratación del entrenador
+          required: false
+          schema:
+            type: string
+          example:
+            value: 23-08-2022
+        - name: available
+          in: query
+          description: estado del entrenador
+          required: false
+          schema:
+            type: boolean
+            default: false
+          example:
+            Ejemplo 1:
+              value: false
+            Ejemplo 2:
+              value: true
+
+      responses:
+        200:
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Trainer"
+        '400':
+          description: Hay un error en la consulta, algún aspecto de la solicitud no es válido.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        404:
+          description: El recurso de destino no existe. La URL no está bien formada o se ha suprimido el recurso.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NotFound"
+        500:
+          description: Error interno del servidor.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InternalServerError"
+    post:
+      tags:
+        - Trainer
+      summary: Insertar un entrenador
+      description: Añadir un nuevo entrenador a la base de datos.
+      operationId: addTrainer
+      requestBody:
+        description: Registra un nuevo entrenador
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TrainerIn'
+      responses:
+        '201':
+          description: Se ha registrado correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Trainer'
+        '400':
+          description: Hay un error en la consulta, algún aspecto de la solicitud no es válido.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestValidation'
+        '500':
+          description: Error interno del servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+
+  /trainer/{id}:
+    get:
+      tags:
+        - Trainer
+      summary: Muestra un entrenador
+      description: Muestra la información de un entrenador determinad por su ID.
+      operationId: getTrainer
+      parameters:
+        - name: id
+          in: path
+          description: Id del entrenador
+          required: true
+          schema:
+            type: number
+            format: int64
+            example: 1
+      responses:
+        200:
+          description: ok
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Trainer"
+        '400':
+          description: Hay un error en la consulta, algún aspecto de la solicitud no es válido.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        404:
+          description: El recurso de destino no existe. La URI no está bien formado o se ha suprimido el recurso.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NotFound"
+        500:
+          description: Error interno del servidor.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InternalServerError"
+    delete:
+      tags:
+        - Trainer
+      summary: Elimina un entrenador
+      description: Elimina la información de un entrenador determinado por su ID.
+      operationId: deleteTrainer
+      parameters:
+        - name: id
+          in: path
+          description: Id del entrenador
+          required: true
+          schema:
+            type: number
+            format: int64
+            example: 1
+      responses:
+        204:
+          description: No content
+        '400':
+          description: Hay un error en la consulta, algún aspecto de la solicitud no es válido.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        404:
+          description: El recurso de destino no existe. La URI no está bien formado o se ha suprimido el recurso.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NotFound"
+        500:
+          description: Error interno del servidor.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InternalServerError"
+    put:
+      tags:
+        - Trainer
+      summary: Modificar un entrenador
+      description: Modificar la infomación de un entrenador en la base de datos.
+      operationId: modifyTrainer
+      parameters:
+        - name: id
+          in: path
+          description: Id del entrenador
+          required: true
+          schema:
+            type: number
+            format: int64
+            example: 1
+      requestBody:
+        description: Nuevos datos del entrenador
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TrainerIn'
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Trainer'
+        '400':
+          description: Hay un error en la consulta, algún aspecto de la solicitud no es válido.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestValidation'
+        404:
+          description: El recurso de destino no existe. La URI no está bien formado o se ha suprimido el recurso.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NotFound"
+        '500':
+          description: Error interno del servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+  /phisiotherapist:
+    get:
+      tags:
+        - Phisiotherapist
+      summary: Lista de fisioterapeutas.
+      description: Muestra una lista de fisioterapeutas.
+      operationId: getPhisiotherapists
+      parameters:
+        - name: name
+          in: query
+          description: Nombre del fisioterapeuta
+          required: true
+          schema:
+            type: string
+          example:
+            value: Gonzalo
+        - name: surname
+          in: query
+          description: Apellido del fisioterapeuta
+          required: false
+          schema:
+            type: string
+          example:
+            value: Fernandez
+        - name: hiringDate
+          in: query
+          description: Fecha de contratación del fisioterapeuta
+          required: false
+          schema:
+            type: string
+          example:
+            value: 23-08-2022
+        - name: available
+          in: query
+          description: estado del fisioterapeuta
+          required: false
+          schema:
+            type: boolean
+            default: false
+          example:
+            Ejemplo 1:
+              value: false
+            Ejemplo 2:
+              value: true
+        - name: headquarter-trainer
+          in: query
+          description: "Filtro para buscar fisioterapeuta por centro"
+          schema:
+            type: string
+
+      responses:
+        200:
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Phisiotherapist"
+        '400':
+          description: Hay un error en la consulta, algún aspecto de la solicitud no es válido.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        404:
+          description: El recurso de destino no existe. La URL no está bien formada o se ha suprimido el recurso.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NotFound"
+        500:
+          description: Error interno del servidor.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InternalServerError"
+
+    post:
+      tags:
+        - Phisiotherapist
+      summary: Insertar un fisioterapeuta
+      description: Añadir un nuevo fisioterapeuta a la base de datos.
+      operationId: addPhisiotherapist
+      requestBody:
+        description: Registra un nuevo fisioterapeuta
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PhisiotherapistIn'
+      responses:
+        '201':
+          description: Se ha registrado correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Phisiotherapist'
+        '400':
+          description: Hay un error en la consulta, algún aspecto de la solicitud no es válido.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestValidation'
+        '500':
+          description: Error interno del servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+  /phisiotherapist/{id}:
+    get:
+      tags:
+        - Phisiotherapist
+      summary: Muestra un fisioterapeuta
+      description: Muestra la información de un fisioterapeuta determinad por su ID
+      operationId: getPhisiotherapist
+      parameters:
+        - name: id
+          in: path
+          description: Id del fisioterapeuta
+          required: true
+          schema:
+            type: number
+            format: int64
+            example: 1
+      responses:
+        200:
+          description: ok
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Phisiotherapist"
+        '400':
+          description: Hay un error en la consulta, algún aspecto de la solicitud no es válido.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        404:
+          description: El recurso de destino no existe. La URI no está bien formado o se ha suprimido el recurso.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NotFound"
+        500:
+          description: Error interno del servidor.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InternalServerError"
+    delete:
+      tags:
+        - Phisiotherapist
+      summary: Elimina un fisioterapeuta
+      description: Elimina la información de un entrenador determinado por su ID.
+      operationId: deletePhisiotherapist
+      parameters:
+        - name: id
+          in: path
+          description: Id del fisioterapeuta
+          required: true
+          schema:
+            type: number
+            format: int64
+            example: 1
+      responses:
+        204:
+          description: No content
+        '400':
+          description: Hay un error en la consulta, algún aspecto de la solicitud no es válido.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        404:
+          description: El recurso de destino no existe. La URI no está bien formado o se ha suprimido el recurso.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NotFound"
+        500:
+          description: Error interno del servidor.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InternalServerError"
+    put:
+      tags:
+        - Phisiotherapist
+      summary: Modificar un fisioterapeuta
+      description: Modificar la infomación de un fisioterapeuta en la base de datos.
+      operationId: modifyPhisiotherapist
+      parameters:
+        - name: id
+          in: path
+          description: Id del fisioterapeuta
+          required: true
+          schema:
+            type: number
+            format: int64
+            example: 1
+      requestBody:
+        description: Nuevos datos del fisioterapeuta
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PhisiotherapistIn'
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Phisiotherapist'
+        '400':
+          description: Hay un error en la consulta, algún aspecto de la solicitud no es válido.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestValidation'
+        404:
+          description: El recurso de destino no existe. La URI no está bien formado o se ha suprimido el recurso.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NotFound"
+        '500':
+          description: Error interno del servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+  /users:
+    get:
+      tags:
+        - User
+      summary: Lista de usuarios.
+      description: Muestra una lista de usuarios.
+      operationId: getUsers
+      responses:
+        200:
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/User"
+        '400':
+          description: Hay un error en la consulta, algún aspecto de la solicitud no es válido.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        404:
+          description: El recurso de destino no existe. La URL no está bien formada o se ha suprimido el recurso.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NotFound"
+        500:
+          description: Error interno del servidor.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InternalServerError"
+    post:
+      tags:
+        - User
+      summary: Insertar un usuario
+      description: Añadir un nuevo usuario a la base de datos.
+      operationId: addUser
+      requestBody:
+        description: Crea un nuevo usuario
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserIn'
+      responses:
+        '201':
+          description: Se ha registrado correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+          description: Hay un error en la consulta, algún aspecto de la solicitud no es válido.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestValidation'
+        '500':
+          description: Error interno del servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+  /user/{id}:
+    get:
+      tags:
+        - User
+      summary: Muestra un Usuario
+      description: Muestra la información de un usuario determinad por su ID.
+      operationId: getUser
+      parameters:
+        - name: id
+          in: path
+          description: Id del usuario
+          required: true
+          schema:
+            type: number
+            format: int64
+            example: 1
+      responses:
+        200:
+          description: ok
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+        '400':
+          description: Hay un error en la consulta, algún aspecto de la solicitud no es válido.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        404:
+          description: El recurso de destino no existe. La URI no está bien formado o se ha suprimido el recurso.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NotFound"
+        500:
+          description: Error interno del servidor.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InternalServerError"
+    delete:
+      tags:
+        - User
+      summary: Elimina un usuario
+      description: Elimina la información de un usuario determinado por su ID.
+      operationId: deleteUser
+      parameters:
+        - name: id
+          in: path
+          description: Id del usuario
+          required: true
+          schema:
+            type: number
+            format: int64
+            example: 1
+      responses:
+        204:
+          description: No content
+        '400':
+          description: Hay un error en la consulta, algún aspecto de la solicitud no es válido.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        404:
+          description: El recurso de destino no existe. La URI no está bien formado o se ha suprimido el recurso.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NotFound"
+        500:
+          description: Error interno del servidor.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InternalServerError"
+    put:
+      tags:
+        - User
+      summary: Modificar un usuario
+      description: Modificar la infomación de un usuario en la base de datos.
+      operationId: modifyUser
+      parameters:
+        - name: id
+          in: path
+          description: Id del Usuario
+          required: true
+          schema:
+            type: number
+            format: int64
+            example: 1
+      requestBody:
+        description: Nuevos datos del usuario
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserIn'
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+          description: Hay un error en la consulta, algún aspecto de la solicitud no es válido.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestValidation'
+        404:
+          description: El recurso de destino no existe. La URI no está bien formado o se ha suprimido el recurso.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NotFound"
+        '500':
+          description: Error interno del servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerError'
+  /usuarios/dni/{dni}:
+    get:
+      tags:
+        - User
+      summary: Lista un usuario .
+      description: Muestra un usuario determinado por su DNI.
+      operationId: getUsuarioById
+      parameters:
+        - name: dni
+          in: path
+          description: Dni del usuario
+          required: true
+          schema:
+            type: string
+            example: "44091652P"
+      responses:
+        200:
+          description: ok
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/User"
+        '400':
+          description: Hay un error en la consulta, algún aspecto de la solicitud no es válido.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequest'
+        404:
+          description: El recurso de destino no existe. La URL no está bien formada o se ha suprimido el recurso.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NotFound"
+        500:
+          description: Error interno del servidor.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InternalServerError"
+
+
+components:
+  schemas:
+    HeadquarterIn:
+      type: object
+      required:
+        - name
+        - city
+      properties:
+        name:
+          type: string
+          example: "Metropolitano"
+        city:
+          type: string
+          example: "Vigo"
+        address:
+          type: string
+          example: "Alvaro Cunqueiro 23"
+        enrollmentNumber:
+          type: integer
+          example: "67"
+        classNumber:
+          type: integer
+          example: "15"
+
+    Headquarter:
+      properties:
+        id:
+          type: number
+          format: int64
+          example: 1
+      allOf:
+        - $ref: "#/components/schemas/HeadquarterIn"
+    BookingIn:
+      type: object
+      properties:
+        bookingDate:
+          type: string
+          format: date
+          example: "12-1-2023"
+        startTime:
+          type: string
+          format: 'date-time'
+          example: "15:30"
+        duration:
+          type: string
+          example: "0344JFW"
+        tools:
+          type: boolean
+          example: "true"
+        paid:
+          type: boolean
+          example: "true"
+        Phisiotherapist:
+          $ref: '#/components/schemas/Phisiotherapist'
+        trainer:
+          $ref: "#/components/schemas/Trainer"
+    Booking:
+      properties:
+        id:
+          type: number
+          format: int64
+          example: 1
+      allOf:
+        - $ref: "#/components/schemas/BookingIn"
+
+    UserIn:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+          example: "Alberto"
+        surname:
+          type: string
+          example: "Fernandez"
+        birthDate:
+          type: string
+          format: date
+          example: "08-11-1993"
+        weight:
+          type: number
+          example: 78
+    User:
+      properties:
+        id:
+          type: number
+          format: int64
+          example: 1
+      allOf:
+        - $ref: "#/components/schemas/UserIn"
+
+    TrainerIn:
+      required:
+        - name
+      properties:
+        name:
+          type: string
+          example: "Jose"
+        surname:
+          type: string
+          example: "Otero"
+        hiringDate:
+          type: string
+          format: date
+          example: "14-06-2017"
+        available:
+          type: boolean
+          example: "true"
+        price:
+          type: number
+          example: 20
+        headquarter:
+          $ref: "#/components/schemas/Headquarter"
+    Trainer:
+      allOf:
+        - $ref: "#/components/schemas/TrainerIn"
+      properties:
+        id:
+          type: number
+          format: int64
+          example: 1
+    PhisiotherapistIn:
+      required:
+        - name
+      properties:
+        name:
+          type: string
+          example: "Lorena"
+        surname:
+          type: string
+          example: "Dominguez"
+        hiringDate:
+          type: string
+          format: date
+          example: "14-06-2017"
+        available:
+          type: boolean
+          example: "true"
+        price:
+          type: number
+          example: 20
+        headquarter:
+          $ref: "#/components/schemas/Headquarter"
+    Phisiotherapist:
+      allOf:
+        - $ref: "#/components/schemas/PhisiotherapistIn"
+      properties:
+        id:
+          type: number
+          format: int64
+          example: 1
+    BadRequest:
+      type: object
+      properties:
+        code:
+          type: string
+          description: código de estado
+          example: 400
+        message:
+          type: string
+          description: Bad Request
+          example: Bad Request
+    BadRequestValidation:
+      type: object
+      properties:
+        code:
+          type: string
+          description: código de estado
+          example: 400
+        message:
+          type: string
+          description: Mensaje de error
+          example: Error de validación
+        errors:
+          $ref: '#/components/schemas/ErrorField'
+    ErrorField:
+      type: object
+      description: Error de validación en un campo de entrada
+      properties:
+        fieldName:
+          type: string
+          description: El campo donde se ha producido el error
+          example: dni
+        message:
+          type: string
+          description: Mensaje de error asociado con el campo
+          example: El formato introducido no es correcto introduce un dni válido
+    NotFound:
+      type: object
+      properties:
+        code:
+          type: string
+          description: código de estado
+          example: 404
+        message:
+          type: string
+          description: Mensaje de error
+          example: Recurso solicitado no encontrado
+    ErrorResponse:
+      properties:
+        internalError:
+          type: number
+          format: int32
+        message:
+          type: string
+      type: object
+    InternalServerError:
+      allOf:
+        - type: object
+        - $ref: '#/components/schemas/ErrorResponse'
+      example:
+        internalError: 500
+        message: "Error interno del servidor"
