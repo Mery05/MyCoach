@@ -14,18 +14,21 @@ import java.util.List;
 public class PhisiotherapistServiceImpl implements PhisiotherapistService{
 
     @Autowired
-    PhisiotherapistRepository phisiotherapistRepository;
+    private PhisiotherapistRepository phisiotherapistRepository;
 
     @Override
     public List<Phisiotherapist> findAllPhisiotherapist() {
 
         return phisiotherapistRepository.findAll();
     }
-
+/*
     @Override
     public List<Phisiotherapist> findByHeadquarter(int phisiotherapistId) {
         return phisiotherapistRepository.findByHeadquarterId(phisiotherapistId);
     }
+
+ */
+
 
     @Override
     public Phisiotherapist findById(Long id) throws PhisiotherapistNotFoundException {
@@ -39,6 +42,7 @@ public class PhisiotherapistServiceImpl implements PhisiotherapistService{
         return phisiotherapistRepository.save(phisiotherapist);
     }
 
+
     @Override
     public Phisiotherapist modifyPhisiotherapist(Phisiotherapist newPhisiotherapist, Long id) throws PhisiotherapistNotFoundException{
         Phisiotherapist phisiotherapist = phisiotherapistRepository.findById(id)
@@ -48,7 +52,7 @@ public class PhisiotherapistServiceImpl implements PhisiotherapistService{
         phisiotherapist.setHiringDate(newPhisiotherapist.getHiringDate());
         phisiotherapist.setAvailable(newPhisiotherapist.isAvailable());
         phisiotherapist.setPrice(newPhisiotherapist.getPrice());
-        phisiotherapist.setHeadquarter(newPhisiotherapist.getHeadquarter());
+        //phisiotherapist.setHeadquarter(newPhisiotherapist.getHeadquarter());
 
         return phisiotherapistRepository.save(phisiotherapist);
     }
@@ -61,3 +65,5 @@ public class PhisiotherapistServiceImpl implements PhisiotherapistService{
         return phisiotherapist;
     }
 }
+
+

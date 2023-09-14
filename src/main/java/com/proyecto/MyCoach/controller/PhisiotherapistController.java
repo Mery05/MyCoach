@@ -1,5 +1,6 @@
 package com.proyecto.MyCoach.controller;
 
+
 import com.proyecto.MyCoach.domain.Headquarter;
 import com.proyecto.MyCoach.domain.Phisiotherapist;
 import com.proyecto.MyCoach.exception.ErrorMessage;
@@ -29,6 +30,8 @@ public class PhisiotherapistController {
 
     @Autowired
     private HeadquarterService headquarterService;
+
+
     private final Logger logger = LoggerFactory.getLogger(PhisiotherapistController.class);
 
 
@@ -46,6 +49,7 @@ public class PhisiotherapistController {
         logger.info("buscar un fisio por id");
         return ResponseEntity.ok(phisiotherapist);
     }
+/*
     //Operación de filtrado de fisios por centro
     @GetMapping("/phisiotherapist")
     public List<Phisiotherapist> getPhisiotherapist(@RequestParam(name = "headquarter-phisiotherapist", required = false, defaultValue = "") String headquarterId) throws PhisiotherapistNotFoundException{
@@ -62,6 +66,8 @@ public class PhisiotherapistController {
         return phisiotherapists;
     }
 
+ */
+
     @PostMapping("/headquarter/{headquarterId}/phisiotherapist")
     public ResponseEntity<Phisiotherapist> addPhisiotherapist (@Validated @RequestBody Phisiotherapist phisiotherapist, @PathVariable long headquarterId) throws PhisiotherapistNotFoundException, HeadquarterNotFoundException {
         Headquarter headquarter = headquarterService.findById(headquarterId);
@@ -70,6 +76,9 @@ public class PhisiotherapistController {
         logger.info("añadir un fisio a un centro");
         return ResponseEntity.status(HttpStatus.CREATED).body(newPhisiotherapis);
     }
+
+
+
 
     @DeleteMapping ("/phisiotherapist/{id}")
     public ResponseEntity<Phisiotherapist> deletePhisiotherapist (@PathVariable long id)throws PhisiotherapistNotFoundException{
@@ -111,3 +120,5 @@ public class PhisiotherapistController {
         return new ResponseEntity<>(badRequestErrorMessage, HttpStatus.BAD_REQUEST);
     }
 }
+
+

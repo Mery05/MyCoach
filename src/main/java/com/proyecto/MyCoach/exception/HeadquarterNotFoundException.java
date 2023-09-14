@@ -14,3 +14,5 @@ public class HeadquarterNotFoundException extends Exception{
         super(message);
     }
 }
+
+

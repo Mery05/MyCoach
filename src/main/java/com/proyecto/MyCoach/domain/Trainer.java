@@ -37,6 +37,7 @@ public class Trainer {
     @Min(value = 0)
     private float price;
 
+
     @OneToMany(mappedBy = "trainer", cascade = CascadeType.ALL)
     private List<Booking> bookingsTrainer;
 
@@ -44,4 +45,8 @@ public class Trainer {
     @JoinColumn (name = "headquarter_id")
     @JsonBackReference("value = headquarter-trainer")
     private Headquarter headquarter;
+
+
+
+
 }

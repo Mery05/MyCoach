@@ -19,3 +19,5 @@ public interface HeadquarterService {
 
     Headquarter deleteHeadquarter(Long id) throws HeadquarterNotFoundException;
 }
+
+

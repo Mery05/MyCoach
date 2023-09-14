@@ -40,4 +40,5 @@ public class Headquarter {
     @OneToMany(mappedBy = "headquarter", cascade = CascadeType.ALL)
     private List<Phisiotherapist> phisiotherapists;
 
+
 }

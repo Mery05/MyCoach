@@ -1,0 +1,453 @@
+2023-09-14 12:26:00,353 DEBUG o.j.l.LoggerProviders [background-preinit] Logging Provider: org.jboss.logging.Slf4jLoggerProvider found via system property
+2023-09-14 12:26:00,408 INFO o.s.b.StartupInfoLogger [main] Starting MyCoachApplication using Java 17.0.4.1 with PID 13872 (C:\Users\freir\OneDrive\Escritorio\AccesoDatos\MyCoach\target\classes started by freir in C:\Users\freir\OneDrive\Escritorio\AccesoDatos\MyCoach)
+2023-09-14 12:26:00,409 DEBUG o.s.b.StartupInfoLogger [main] Running with Spring Boot v3.1.2, Spring v6.0.11
+2023-09-14 12:26:00,411 INFO o.s.b.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-09-14 12:26:02,097 INFO o.a.j.l.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2023-09-14 12:26:02,104 INFO o.a.j.l.DirectJDKLog [main] Starting service [Tomcat]
+2023-09-14 12:26:02,104 INFO o.a.j.l.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/10.1.11]
+2023-09-14 12:26:02,266 INFO o.a.j.l.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2023-09-14 12:26:02,341 DEBUG c.z.h.HikariConfig [main] Driver class org.h2.Driver found in Thread context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93
+2023-09-14 12:26:02,984 DEBUG c.z.h.HikariConfig [main] HikariPool-1 - configuration:
+2023-09-14 12:26:02,991 DEBUG c.z.h.HikariConfig [main] allowPoolSuspension.............false
+2023-09-14 12:26:02,992 DEBUG c.z.h.HikariConfig [main] autoCommit......................true
+2023-09-14 12:26:02,992 DEBUG c.z.h.HikariConfig [main] catalog.........................none
+2023-09-14 12:26:02,993 DEBUG c.z.h.HikariConfig [main] connectionInitSql...............none
+2023-09-14 12:26:02,994 DEBUG c.z.h.HikariConfig [main] connectionTestQuery.............none
+2023-09-14 12:26:02,994 DEBUG c.z.h.HikariConfig [main] connectionTimeout...............30000
+2023-09-14 12:26:02,995 DEBUG c.z.h.HikariConfig [main] dataSource......................none
+2023-09-14 12:26:02,996 DEBUG c.z.h.HikariConfig [main] dataSourceClassName.............none
+2023-09-14 12:26:02,996 DEBUG c.z.h.HikariConfig [main] dataSourceJNDI..................none
+2023-09-14 12:26:02,997 DEBUG c.z.h.HikariConfig [main] dataSourceProperties............{password=<masked>}
+2023-09-14 12:26:02,998 DEBUG c.z.h.HikariConfig [main] driverClassName................."org.h2.Driver"
+2023-09-14 12:26:02,998 DEBUG c.z.h.HikariConfig [main] exceptionOverrideClassName......none
+2023-09-14 12:26:02,999 DEBUG c.z.h.HikariConfig [main] healthCheckProperties...........{}
+2023-09-14 12:26:03,000 DEBUG c.z.h.HikariConfig [main] healthCheckRegistry.............none
+2023-09-14 12:26:03,000 DEBUG c.z.h.HikariConfig [main] idleTimeout.....................600000
+2023-09-14 12:26:03,001 DEBUG c.z.h.HikariConfig [main] initializationFailTimeout.......1
+2023-09-14 12:26:03,001 DEBUG c.z.h.HikariConfig [main] isolateInternalQueries..........false
+2023-09-14 12:26:03,002 DEBUG c.z.h.HikariConfig [main] jdbcUrl.........................jdbc:h2:file:C:/Users/freir/myCoach.db
+2023-09-14 12:26:03,003 DEBUG c.z.h.HikariConfig [main] keepaliveTime...................0
+2023-09-14 12:26:03,003 DEBUG c.z.h.HikariConfig [main] leakDetectionThreshold..........0
+2023-09-14 12:26:03,004 DEBUG c.z.h.HikariConfig [main] maxLifetime.....................1800000
+2023-09-14 12:26:03,004 DEBUG c.z.h.HikariConfig [main] maximumPoolSize.................10
+2023-09-14 12:26:03,004 DEBUG c.z.h.HikariConfig [main] metricRegistry..................none
+2023-09-14 12:26:03,005 DEBUG c.z.h.HikariConfig [main] metricsTrackerFactory...........none
+2023-09-14 12:26:03,005 DEBUG c.z.h.HikariConfig [main] minimumIdle.....................10
+2023-09-14 12:26:03,006 DEBUG c.z.h.HikariConfig [main] password........................<masked>
+2023-09-14 12:26:03,006 DEBUG c.z.h.HikariConfig [main] poolName........................"HikariPool-1"
+2023-09-14 12:26:03,006 DEBUG c.z.h.HikariConfig [main] readOnly........................false
+2023-09-14 12:26:03,007 DEBUG c.z.h.HikariConfig [main] registerMbeans..................false
+2023-09-14 12:26:03,007 DEBUG c.z.h.HikariConfig [main] scheduledExecutor...............none
+2023-09-14 12:26:03,007 DEBUG c.z.h.HikariConfig [main] schema..........................none
+2023-09-14 12:26:03,007 DEBUG c.z.h.HikariConfig [main] threadFactory...................internal
+2023-09-14 12:26:03,008 DEBUG c.z.h.HikariConfig [main] transactionIsolation............default
+2023-09-14 12:26:03,008 DEBUG c.z.h.HikariConfig [main] username........................"sa"
+2023-09-14 12:26:03,008 DEBUG c.z.h.HikariConfig [main] validationTimeout...............5000
+2023-09-14 12:26:03,009 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Starting...
+2023-09-14 12:26:03,397 INFO c.z.h.p.HikariPool [main] HikariPool-1 - Added connection conn0: url=jdbc:h2:file:C:/Users/freir/myCoach.db user=SA
+2023-09-14 12:26:03,399 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Start completed.
+2023-09-14 12:26:03,508 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=1, active=0, idle=1, waiting=0)
+2023-09-14 12:26:03,510 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection conn1: url=jdbc:h2:file:C:/Users/freir/myCoach.db user=SA
+2023-09-14 12:26:03,523 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection conn2: url=jdbc:h2:file:C:/Users/freir/myCoach.db user=SA
+2023-09-14 12:26:03,539 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection conn3: url=jdbc:h2:file:C:/Users/freir/myCoach.db user=SA
+2023-09-14 12:26:03,555 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection conn4: url=jdbc:h2:file:C:/Users/freir/myCoach.db user=SA
+2023-09-14 12:26:03,570 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection conn5: url=jdbc:h2:file:C:/Users/freir/myCoach.db user=SA
+2023-09-14 12:26:03,585 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection conn6: url=jdbc:h2:file:C:/Users/freir/myCoach.db user=SA
+2023-09-14 12:26:03,600 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection conn7: url=jdbc:h2:file:C:/Users/freir/myCoach.db user=SA
+2023-09-14 12:26:03,617 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection conn8: url=jdbc:h2:file:C:/Users/freir/myCoach.db user=SA
+2023-09-14 12:26:03,633 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection conn9: url=jdbc:h2:file:C:/Users/freir/myCoach.db user=SA
+2023-09-14 12:26:03,648 DEBUG c.z.h.p.HikariPool [HikariPool-1 connection adder] HikariPool-1 - After adding stats (total=10, active=0, idle=10, waiting=0)
+2023-09-14 12:26:05,199 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-09-14 12:26:05,379 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	c.p.M.c.HeadquarterController:
+	{POST [/headquarter]}: addHeadquarter(Headquarter)
+	{DELETE [/headquarter/{id}]}: deleteHeadquarter(long)
+	{GET [/headquarters]}: getHeadquarters()
+	{GET [/headquarter/{id}]}: getHeadquarterById(long)
+	{PUT [/headquarter/{id}]}: modifyHeadquarter(Headquarter,long)
+2023-09-14 12:26:05,385 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	c.p.M.c.PhisiotherapistController:
+	{PUT [/phisiotherapist/{id}]}: modifyPhisiotherapist(Phisiotherapist,long)
+	{GET [/phisiotherapist/{id}]}: getPhisiotherapistById(long)
+	{DELETE [/phisiotherapist/{id}]}: deletePhisiotherapist(long)
+	{GET [/phisiotherapists]}: getPhisiotherapist()
+2023-09-14 12:26:05,385 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	c.p.M.c.TrainerController:
+	{PUT [/trainer/{id}]}: modifyTrainer(Trainer,long)
+	{DELETE [/trainer/{id}]}: deleteTrainer(long)
+	{GET [/trainer/{id}]}: getTrainerById(long)
+	{GET [/trainers]}: getTrainers()
+2023-09-14 12:26:05,386 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	c.p.M.c.UserController:
+	{POST [/user]}: addUser(User)
+	{GET [/users]}: getUsers()
+	{DELETE [/user/{id}]}: deleteUser(long)
+	{PUT [/user/{id}]}: modifyUser(User,long)
+	{GET [/user/{id}]}: getUserById(long)
+2023-09-14 12:26:05,388 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	o.s.b.a.w.s.e.BasicErrorController:
+	{ [/error]}: error(HttpServletRequest)
+	{ [/error], produces [text/html]}: errorHtml(HttpServletRequest,HttpServletResponse)
+2023-09-14 12:26:05,396 DEBUG o.s.w.s.h.AbstractDetectingUrlHandlerMapping [main] 'beanNameHandlerMapping' {}
+2023-09-14 12:26:05,411 DEBUG o.s.w.s.h.SimpleUrlHandlerMapping [main] 'resourceHandlerMapping' {/webjars/**=ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]], /**=ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]}
+2023-09-14 12:26:05,495 INFO o.a.j.l.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2023-09-14 12:26:05,543 INFO o.s.b.StartupInfoLogger [main] Started MyCoachApplication in 5.605 seconds (process running for 6.253)
+2023-09-14 12:26:33,521 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2023-09-14 12:26:33,523 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2023-09-14 12:27:03,534 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2023-09-14 12:27:03,535 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2023-09-14 12:27:29,110 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-09-14 12:27:29,501 INFO c.p.M.c.UserController [http-nio-8080-exec-1] listar a todos los usuarios
+2023-09-14 12:27:33,549 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2023-09-14 12:27:33,549 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2023-09-14 12:27:38,021 INFO c.p.M.c.UserController [http-nio-8080-exec-3] registrar un usuario
+2023-09-14 12:28:03,556 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2023-09-14 12:28:03,557 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2023-09-14 12:28:11,343 INFO c.p.M.c.UserController [http-nio-8080-exec-4] registrar un usuario
+2023-09-14 12:28:19,176 INFO c.p.M.c.TrainerController [http-nio-8080-exec-6] listar a todos los entrenadores
+2023-09-14 12:28:27,662 INFO c.p.M.c.PhisiotherapistController [http-nio-8080-exec-5] listar todos los fisios
+2023-09-14 12:28:33,572 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2023-09-14 12:28:33,573 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2023-09-14 12:28:54,178 INFO c.p.M.c.HeadquarterController [http-nio-8080-exec-8] añadir un centro
+2023-09-14 12:29:03,579 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2023-09-14 12:29:03,579 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2023-09-14 12:29:24,466 INFO c.p.M.c.HeadquarterController [http-nio-8080-exec-9] añadir un centro
+2023-09-14 12:29:33,582 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2023-09-14 12:29:33,582 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2023-09-14 12:30:03,584 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2023-09-14 12:30:03,585 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2023-09-14 12:30:33,600 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2023-09-14 12:30:33,600 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2023-09-14 12:31:03,610 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2023-09-14 12:31:03,611 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2023-09-14 12:31:33,618 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2023-09-14 12:31:33,619 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2023-09-14 12:32:03,633 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2023-09-14 12:32:03,633 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2023-09-14 12:32:33,648 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2023-09-14 12:32:33,648 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2023-09-14 12:33:03,664 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2023-09-14 12:33:03,664 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2023-09-14 12:33:33,677 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2023-09-14 12:33:33,678 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2023-09-14 12:34:03,685 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2023-09-14 12:34:03,685 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2023-09-14 12:34:33,697 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2023-09-14 12:34:33,697 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2023-09-14 12:35:03,710 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2023-09-14 12:35:03,711 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2023-09-14 12:35:07,505 INFO c.p.M.c.TrainerController [http-nio-8080-exec-6] listar a todos los entrenadores
+2023-09-14 12:35:33,715 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2023-09-14 12:35:33,716 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2023-09-14 12:35:38,893 INFO c.p.M.c.HeadquarterController [http-nio-8080-exec-7] Listar todos los centros
+2023-09-14 12:36:03,722 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2023-09-14 12:36:03,722 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2023-09-14 12:36:33,727 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2023-09-14 12:36:33,727 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2023-09-14 12:37:03,738 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2023-09-14 12:37:03,738 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2023-09-14 12:37:34,684 DEBUG o.j.l.LoggerProviders [background-preinit] Logging Provider: org.jboss.logging.Slf4jLoggerProvider found via system property
+2023-09-14 12:37:34,732 INFO o.s.b.StartupInfoLogger [main] Starting MyCoachApplication using Java 17.0.4.1 with PID 2292 (C:\Users\freir\OneDrive\Escritorio\AccesoDatos\MyCoach\target\classes started by freir in C:\Users\freir\OneDrive\Escritorio\AccesoDatos\MyCoach)
+2023-09-14 12:37:34,733 DEBUG o.s.b.StartupInfoLogger [main] Running with Spring Boot v3.1.2, Spring v6.0.11
+2023-09-14 12:37:34,735 INFO o.s.b.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-09-14 12:37:35,985 INFO o.a.j.l.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2023-09-14 12:37:35,988 INFO o.a.j.l.DirectJDKLog [main] Starting service [Tomcat]
+2023-09-14 12:37:35,989 INFO o.a.j.l.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/10.1.11]
+2023-09-14 12:37:36,087 INFO o.a.j.l.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2023-09-14 12:37:36,152 DEBUG c.z.h.HikariConfig [main] Driver class org.h2.Driver found in Thread context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93
+2023-09-14 12:37:36,560 DEBUG c.z.h.HikariConfig [main] HikariPool-1 - configuration:
+2023-09-14 12:37:36,566 DEBUG c.z.h.HikariConfig [main] allowPoolSuspension.............false
+2023-09-14 12:37:36,566 DEBUG c.z.h.HikariConfig [main] autoCommit......................true
+2023-09-14 12:37:36,567 DEBUG c.z.h.HikariConfig [main] catalog.........................none
+2023-09-14 12:37:36,567 DEBUG c.z.h.HikariConfig [main] connectionInitSql...............none
+2023-09-14 12:37:36,567 DEBUG c.z.h.HikariConfig [main] connectionTestQuery.............none
+2023-09-14 12:37:36,568 DEBUG c.z.h.HikariConfig [main] connectionTimeout...............30000
+2023-09-14 12:37:36,568 DEBUG c.z.h.HikariConfig [main] dataSource......................none
+2023-09-14 12:37:36,569 DEBUG c.z.h.HikariConfig [main] dataSourceClassName.............none
+2023-09-14 12:37:36,569 DEBUG c.z.h.HikariConfig [main] dataSourceJNDI..................none
+2023-09-14 12:37:36,570 DEBUG c.z.h.HikariConfig [main] dataSourceProperties............{password=<masked>}
+2023-09-14 12:37:36,570 DEBUG c.z.h.HikariConfig [main] driverClassName................."org.h2.Driver"
+2023-09-14 12:37:36,570 DEBUG c.z.h.HikariConfig [main] exceptionOverrideClassName......none
+2023-09-14 12:37:36,571 DEBUG c.z.h.HikariConfig [main] healthCheckProperties...........{}
+2023-09-14 12:37:36,571 DEBUG c.z.h.HikariConfig [main] healthCheckRegistry.............none
+2023-09-14 12:37:36,571 DEBUG c.z.h.HikariConfig [main] idleTimeout.....................600000
+2023-09-14 12:37:36,572 DEBUG c.z.h.HikariConfig [main] initializationFailTimeout.......1
+2023-09-14 12:37:36,573 DEBUG c.z.h.HikariConfig [main] isolateInternalQueries..........false
+2023-09-14 12:37:36,573 DEBUG c.z.h.HikariConfig [main] jdbcUrl.........................jdbc:h2:file:C:/Users/freir/myCoach.db
+2023-09-14 12:37:36,573 DEBUG c.z.h.HikariConfig [main] keepaliveTime...................0
+2023-09-14 12:37:36,573 DEBUG c.z.h.HikariConfig [main] leakDetectionThreshold..........0
+2023-09-14 12:37:36,574 DEBUG c.z.h.HikariConfig [main] maxLifetime.....................1800000
+2023-09-14 12:37:36,574 DEBUG c.z.h.HikariConfig [main] maximumPoolSize.................10
+2023-09-14 12:37:36,575 DEBUG c.z.h.HikariConfig [main] metricRegistry..................none
+2023-09-14 12:37:36,575 DEBUG c.z.h.HikariConfig [main] metricsTrackerFactory...........none
+2023-09-14 12:37:36,575 DEBUG c.z.h.HikariConfig [main] minimumIdle.....................10
+2023-09-14 12:37:36,576 DEBUG c.z.h.HikariConfig [main] password........................<masked>
+2023-09-14 12:37:36,576 DEBUG c.z.h.HikariConfig [main] poolName........................"HikariPool-1"
+2023-09-14 12:37:36,577 DEBUG c.z.h.HikariConfig [main] readOnly........................false
+2023-09-14 12:37:36,577 DEBUG c.z.h.HikariConfig [main] registerMbeans..................false
+2023-09-14 12:37:36,577 DEBUG c.z.h.HikariConfig [main] scheduledExecutor...............none
+2023-09-14 12:37:36,578 DEBUG c.z.h.HikariConfig [main] schema..........................none
+2023-09-14 12:37:36,579 DEBUG c.z.h.HikariConfig [main] threadFactory...................internal
+2023-09-14 12:37:36,579 DEBUG c.z.h.HikariConfig [main] transactionIsolation............default
+2023-09-14 12:37:36,579 DEBUG c.z.h.HikariConfig [main] username........................"sa"
+2023-09-14 12:37:36,580 DEBUG c.z.h.HikariConfig [main] validationTimeout...............5000
+2023-09-14 12:37:36,580 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Starting...
+2023-09-14 12:37:36,838 INFO c.z.h.p.HikariPool [main] HikariPool-1 - Added connection conn0: url=jdbc:h2:file:C:/Users/freir/myCoach.db user=SA
+2023-09-14 12:37:36,840 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Start completed.
+2023-09-14 12:37:36,944 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=1, active=0, idle=1, waiting=0)
+2023-09-14 12:37:36,945 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection conn1: url=jdbc:h2:file:C:/Users/freir/myCoach.db user=SA
+2023-09-14 12:37:36,960 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection conn2: url=jdbc:h2:file:C:/Users/freir/myCoach.db user=SA
+2023-09-14 12:37:36,976 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection conn3: url=jdbc:h2:file:C:/Users/freir/myCoach.db user=SA
+2023-09-14 12:37:36,991 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection conn4: url=jdbc:h2:file:C:/Users/freir/myCoach.db user=SA
+2023-09-14 12:37:37,006 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection conn5: url=jdbc:h2:file:C:/Users/freir/myCoach.db user=SA
+2023-09-14 12:37:37,022 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection conn6: url=jdbc:h2:file:C:/Users/freir/myCoach.db user=SA
+2023-09-14 12:37:37,037 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection conn7: url=jdbc:h2:file:C:/Users/freir/myCoach.db user=SA
+2023-09-14 12:37:37,053 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection conn8: url=jdbc:h2:file:C:/Users/freir/myCoach.db user=SA
+2023-09-14 12:37:37,069 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection conn9: url=jdbc:h2:file:C:/Users/freir/myCoach.db user=SA
+2023-09-14 12:37:37,084 DEBUG c.z.h.p.HikariPool [HikariPool-1 connection adder] HikariPool-1 - After adding stats (total=10, active=0, idle=10, waiting=0)
+2023-09-14 12:37:38,237 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-09-14 12:37:38,394 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	c.p.M.c.HeadquarterController:
+	{DELETE [/headquarter/{id}]}: deleteHeadquarter(long)
+	{POST [/headquarter]}: addHeadquarter(Headquarter)
+	{GET [/headquarter/{id}]}: getHeadquarterById(long)
+	{GET [/headquarters]}: getHeadquarters()
+	{PUT [/headquarter/{id}]}: modifyHeadquarter(Headquarter,long)
+2023-09-14 12:37:38,397 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	c.p.M.c.PhisiotherapistController:
+	{DELETE [/phisiotherapist/{id}]}: deletePhisiotherapist(long)
+	{PUT [/phisiotherapist/{id}]}: modifyPhisiotherapist(Phisiotherapist,long)
+	{GET [/phisiotherapist/{id}]}: getPhisiotherapistById(long)
+	{POST [/headquarter/{headquarterId}/phisiotherapist]}: addPhisiotherapist(Phisiotherapist,long)
+	{GET [/phisiotherapists]}: getPhisiotherapist()
+2023-09-14 12:37:38,398 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	c.p.M.c.TrainerController:
+	{GET [/trainers]}: getTrainers()
+	{DELETE [/trainer/{id}]}: deleteTrainer(long)
+	{POST [/headquarter/{headquarterId}/trainer]}: addTrainer(Trainer,long)
+	{GET [/trainer/{id}]}: getTrainerById(long)
+	{PUT [/trainer/{id}]}: modifyTrainer(Trainer,long)
+2023-09-14 12:37:38,399 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	c.p.M.c.UserController:
+	{PUT [/user/{id}]}: modifyUser(User,long)
+	{GET [/users]}: getUsers()
+	{DELETE [/user/{id}]}: deleteUser(long)
+	{GET [/user/{id}]}: getUserById(long)
+	{POST [/user]}: addUser(User)
+2023-09-14 12:37:38,401 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	o.s.b.a.w.s.e.BasicErrorController:
+	{ [/error]}: error(HttpServletRequest)
+	{ [/error], produces [text/html]}: errorHtml(HttpServletRequest,HttpServletResponse)
+2023-09-14 12:37:38,408 DEBUG o.s.w.s.h.AbstractDetectingUrlHandlerMapping [main] 'beanNameHandlerMapping' {}
+2023-09-14 12:37:38,419 DEBUG o.s.w.s.h.SimpleUrlHandlerMapping [main] 'resourceHandlerMapping' {/webjars/**=ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]], /**=ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]}
+2023-09-14 12:37:38,508 INFO o.a.j.l.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2023-09-14 12:37:38,546 INFO o.s.b.StartupInfoLogger [main] Started MyCoachApplication in 4.164 seconds (process running for 4.628)
+2023-09-14 12:37:59,523 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-09-14 12:37:59,733 INFO c.p.M.c.PhisiotherapistController [http-nio-8080-exec-2] buscar un centro por id
+2023-09-14 12:37:59,807 INFO c.p.M.c.PhisiotherapistController [http-nio-8080-exec-2] añadir un fisio a un centro
+2023-09-14 12:38:06,948 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2023-09-14 12:38:06,949 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2023-09-14 12:38:08,877 INFO c.p.M.c.TrainerController [http-nio-8080-exec-6] buscar un centro por id
+2023-09-14 12:38:08,886 INFO c.p.M.c.TrainerController [http-nio-8080-exec-6] registrar un entrenador en un centro
+2023-09-14 12:38:32,095 INFO c.p.M.c.UserController [http-nio-8080-exec-5] listar a todos los usuarios
+2023-09-14 12:38:36,962 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2023-09-14 12:38:36,962 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2023-09-14 12:39:57,323 DEBUG o.j.l.LoggerProviders [background-preinit] Logging Provider: org.jboss.logging.Slf4jLoggerProvider found via system property
+2023-09-14 12:39:57,367 INFO o.s.b.StartupInfoLogger [main] Starting MyCoachApplication using Java 17.0.4.1 with PID 1404 (C:\Users\freir\OneDrive\Escritorio\AccesoDatos\MyCoach\target\classes started by freir in C:\Users\freir\OneDrive\Escritorio\AccesoDatos\MyCoach)
+2023-09-14 12:39:57,368 DEBUG o.s.b.StartupInfoLogger [main] Running with Spring Boot v3.1.2, Spring v6.0.11
+2023-09-14 12:39:57,369 INFO o.s.b.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-09-14 12:39:58,545 INFO o.a.j.l.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2023-09-14 12:39:58,549 INFO o.a.j.l.DirectJDKLog [main] Starting service [Tomcat]
+2023-09-14 12:39:58,550 INFO o.a.j.l.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/10.1.11]
+2023-09-14 12:39:58,653 INFO o.a.j.l.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2023-09-14 12:39:58,708 DEBUG c.z.h.HikariConfig [main] Driver class org.h2.Driver found in Thread context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93
+2023-09-14 12:39:59,143 DEBUG c.z.h.HikariConfig [main] HikariPool-1 - configuration:
+2023-09-14 12:39:59,146 DEBUG c.z.h.HikariConfig [main] allowPoolSuspension.............false
+2023-09-14 12:39:59,146 DEBUG c.z.h.HikariConfig [main] autoCommit......................true
+2023-09-14 12:39:59,147 DEBUG c.z.h.HikariConfig [main] catalog.........................none
+2023-09-14 12:39:59,147 DEBUG c.z.h.HikariConfig [main] connectionInitSql...............none
+2023-09-14 12:39:59,147 DEBUG c.z.h.HikariConfig [main] connectionTestQuery.............none
+2023-09-14 12:39:59,148 DEBUG c.z.h.HikariConfig [main] connectionTimeout...............30000
+2023-09-14 12:39:59,148 DEBUG c.z.h.HikariConfig [main] dataSource......................none
+2023-09-14 12:39:59,148 DEBUG c.z.h.HikariConfig [main] dataSourceClassName.............none
+2023-09-14 12:39:59,149 DEBUG c.z.h.HikariConfig [main] dataSourceJNDI..................none
+2023-09-14 12:39:59,149 DEBUG c.z.h.HikariConfig [main] dataSourceProperties............{password=<masked>}
+2023-09-14 12:39:59,150 DEBUG c.z.h.HikariConfig [main] driverClassName................."org.h2.Driver"
+2023-09-14 12:39:59,150 DEBUG c.z.h.HikariConfig [main] exceptionOverrideClassName......none
+2023-09-14 12:39:59,150 DEBUG c.z.h.HikariConfig [main] healthCheckProperties...........{}
+2023-09-14 12:39:59,150 DEBUG c.z.h.HikariConfig [main] healthCheckRegistry.............none
+2023-09-14 12:39:59,151 DEBUG c.z.h.HikariConfig [main] idleTimeout.....................600000
+2023-09-14 12:39:59,151 DEBUG c.z.h.HikariConfig [main] initializationFailTimeout.......1
+2023-09-14 12:39:59,152 DEBUG c.z.h.HikariConfig [main] isolateInternalQueries..........false
+2023-09-14 12:39:59,152 DEBUG c.z.h.HikariConfig [main] jdbcUrl.........................jdbc:h2:file:C:/Users/freir/myCoach.db
+2023-09-14 12:39:59,152 DEBUG c.z.h.HikariConfig [main] keepaliveTime...................0
+2023-09-14 12:39:59,152 DEBUG c.z.h.HikariConfig [main] leakDetectionThreshold..........0
+2023-09-14 12:39:59,153 DEBUG c.z.h.HikariConfig [main] maxLifetime.....................1800000
+2023-09-14 12:39:59,153 DEBUG c.z.h.HikariConfig [main] maximumPoolSize.................10
+2023-09-14 12:39:59,153 DEBUG c.z.h.HikariConfig [main] metricRegistry..................none
+2023-09-14 12:39:59,153 DEBUG c.z.h.HikariConfig [main] metricsTrackerFactory...........none
+2023-09-14 12:39:59,153 DEBUG c.z.h.HikariConfig [main] minimumIdle.....................10
+2023-09-14 12:39:59,154 DEBUG c.z.h.HikariConfig [main] password........................<masked>
+2023-09-14 12:39:59,154 DEBUG c.z.h.HikariConfig [main] poolName........................"HikariPool-1"
+2023-09-14 12:39:59,154 DEBUG c.z.h.HikariConfig [main] readOnly........................false
+2023-09-14 12:39:59,154 DEBUG c.z.h.HikariConfig [main] registerMbeans..................false
+2023-09-14 12:39:59,154 DEBUG c.z.h.HikariConfig [main] scheduledExecutor...............none
+2023-09-14 12:39:59,155 DEBUG c.z.h.HikariConfig [main] schema..........................none
+2023-09-14 12:39:59,155 DEBUG c.z.h.HikariConfig [main] threadFactory...................internal
+2023-09-14 12:39:59,155 DEBUG c.z.h.HikariConfig [main] transactionIsolation............default
+2023-09-14 12:39:59,155 DEBUG c.z.h.HikariConfig [main] username........................"sa"
+2023-09-14 12:39:59,155 DEBUG c.z.h.HikariConfig [main] validationTimeout...............5000
+2023-09-14 12:39:59,156 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Starting...
+2023-09-14 12:39:59,380 INFO c.z.h.p.HikariPool [main] HikariPool-1 - Added connection conn0: url=jdbc:h2:file:C:/Users/freir/myCoach.db user=SA
+2023-09-14 12:39:59,383 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Start completed.
+2023-09-14 12:39:59,490 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=1, active=0, idle=1, waiting=0)
+2023-09-14 12:39:59,492 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection conn1: url=jdbc:h2:file:C:/Users/freir/myCoach.db user=SA
+2023-09-14 12:39:59,507 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection conn2: url=jdbc:h2:file:C:/Users/freir/myCoach.db user=SA
+2023-09-14 12:39:59,523 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection conn3: url=jdbc:h2:file:C:/Users/freir/myCoach.db user=SA
+2023-09-14 12:39:59,539 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection conn4: url=jdbc:h2:file:C:/Users/freir/myCoach.db user=SA
+2023-09-14 12:39:59,555 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection conn5: url=jdbc:h2:file:C:/Users/freir/myCoach.db user=SA
+2023-09-14 12:39:59,571 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection conn6: url=jdbc:h2:file:C:/Users/freir/myCoach.db user=SA
+2023-09-14 12:39:59,587 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection conn7: url=jdbc:h2:file:C:/Users/freir/myCoach.db user=SA
+2023-09-14 12:39:59,603 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection conn8: url=jdbc:h2:file:C:/Users/freir/myCoach.db user=SA
+2023-09-14 12:39:59,619 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection conn9: url=jdbc:h2:file:C:/Users/freir/myCoach.db user=SA
+2023-09-14 12:39:59,633 DEBUG c.z.h.p.HikariPool [HikariPool-1 connection adder] HikariPool-1 - After adding stats (total=10, active=0, idle=10, waiting=0)
+2023-09-14 12:40:00,828 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-09-14 12:40:01,006 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	c.p.M.c.HeadquarterController:
+	{POST [/headquarter]}: addHeadquarter(Headquarter)
+	{DELETE [/headquarter/{id}]}: deleteHeadquarter(long)
+	{GET [/headquarter/{id}]}: getHeadquarterById(long)
+	{PUT [/headquarter/{id}]}: modifyHeadquarter(Headquarter,long)
+	{GET [/headquarters]}: getHeadquarters()
+2023-09-14 12:40:01,009 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	c.p.M.c.PhisiotherapistController:
+	{GET [/phisiotherapists]}: getPhisiotherapist()
+	{POST [/headquarter/{headquarterId}/phisiotherapist]}: addPhisiotherapist(Phisiotherapist,long)
+	{DELETE [/phisiotherapist/{id}]}: deletePhisiotherapist(long)
+	{GET [/phisiotherapist/{id}]}: getPhisiotherapistById(long)
+	{PUT [/phisiotherapist/{id}]}: modifyPhisiotherapist(Phisiotherapist,long)
+2023-09-14 12:40:01,010 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	c.p.M.c.TrainerController:
+	{PUT [/trainer/{id}]}: modifyTrainer(Trainer,long)
+	{POST [/headquarter/{headquarterId}/trainer]}: addTrainer(Trainer,long)
+	{GET [/trainer/{id}]}: getTrainerById(long)
+	{DELETE [/trainer/{id}]}: deleteTrainer(long)
+	{GET [/trainers]}: getTrainers()
+2023-09-14 12:40:01,011 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	c.p.M.c.UserController:
+	{POST [/user]}: addUser(User)
+	{DELETE [/user/{id}]}: deleteUser(long)
+	{GET [/user/{id}]}: getUserById(long)
+	{PUT [/user/{id}]}: modifyUser(User,long)
+	{GET [/users]}: getUsers()
+2023-09-14 12:40:01,013 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	o.s.b.a.w.s.e.BasicErrorController:
+	{ [/error]}: error(HttpServletRequest)
+	{ [/error], produces [text/html]}: errorHtml(HttpServletRequest,HttpServletResponse)
+2023-09-14 12:40:01,020 DEBUG o.s.w.s.h.AbstractDetectingUrlHandlerMapping [main] 'beanNameHandlerMapping' {}
+2023-09-14 12:40:01,031 DEBUG o.s.w.s.h.SimpleUrlHandlerMapping [main] 'resourceHandlerMapping' {/webjars/**=ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]], /**=ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]}
+2023-09-14 12:40:01,107 INFO o.a.j.l.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2023-09-14 12:40:01,150 INFO o.s.b.StartupInfoLogger [main] Started MyCoachApplication in 4.173 seconds (process running for 4.596)
+2023-09-14 12:40:29,502 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2023-09-14 12:40:29,503 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2023-09-14 12:40:49,258 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-09-14 12:40:49,693 INFO c.p.M.c.TrainerController [http-nio-8080-exec-1] listar a todos los entrenadores
+2023-09-14 12:40:59,506 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2023-09-14 12:40:59,507 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2023-09-14 12:42:08,829 DEBUG o.j.l.LoggerProviders [background-preinit] Logging Provider: org.jboss.logging.Slf4jLoggerProvider found via system property
+2023-09-14 12:42:08,872 INFO o.s.b.StartupInfoLogger [main] Starting MyCoachApplication using Java 17.0.4.1 with PID 18240 (C:\Users\freir\OneDrive\Escritorio\AccesoDatos\MyCoach\target\classes started by freir in C:\Users\freir\OneDrive\Escritorio\AccesoDatos\MyCoach)
+2023-09-14 12:42:08,873 DEBUG o.s.b.StartupInfoLogger [main] Running with Spring Boot v3.1.2, Spring v6.0.11
+2023-09-14 12:42:08,874 INFO o.s.b.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2023-09-14 12:42:09,973 INFO o.a.j.l.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2023-09-14 12:42:09,975 INFO o.a.j.l.DirectJDKLog [main] Starting service [Tomcat]
+2023-09-14 12:42:09,976 INFO o.a.j.l.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/10.1.11]
+2023-09-14 12:42:10,062 INFO o.a.j.l.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2023-09-14 12:42:10,115 DEBUG c.z.h.HikariConfig [main] Driver class org.h2.Driver found in Thread context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93
+2023-09-14 12:42:10,533 DEBUG c.z.h.HikariConfig [main] HikariPool-1 - configuration:
+2023-09-14 12:42:10,537 DEBUG c.z.h.HikariConfig [main] allowPoolSuspension.............false
+2023-09-14 12:42:10,538 DEBUG c.z.h.HikariConfig [main] autoCommit......................true
+2023-09-14 12:42:10,538 DEBUG c.z.h.HikariConfig [main] catalog.........................none
+2023-09-14 12:42:10,538 DEBUG c.z.h.HikariConfig [main] connectionInitSql...............none
+2023-09-14 12:42:10,539 DEBUG c.z.h.HikariConfig [main] connectionTestQuery.............none
+2023-09-14 12:42:10,539 DEBUG c.z.h.HikariConfig [main] connectionTimeout...............30000
+2023-09-14 12:42:10,539 DEBUG c.z.h.HikariConfig [main] dataSource......................none
+2023-09-14 12:42:10,539 DEBUG c.z.h.HikariConfig [main] dataSourceClassName.............none
+2023-09-14 12:42:10,539 DEBUG c.z.h.HikariConfig [main] dataSourceJNDI..................none
+2023-09-14 12:42:10,540 DEBUG c.z.h.HikariConfig [main] dataSourceProperties............{password=<masked>}
+2023-09-14 12:42:10,540 DEBUG c.z.h.HikariConfig [main] driverClassName................."org.h2.Driver"
+2023-09-14 12:42:10,540 DEBUG c.z.h.HikariConfig [main] exceptionOverrideClassName......none
+2023-09-14 12:42:10,540 DEBUG c.z.h.HikariConfig [main] healthCheckProperties...........{}
+2023-09-14 12:42:10,541 DEBUG c.z.h.HikariConfig [main] healthCheckRegistry.............none
+2023-09-14 12:42:10,541 DEBUG c.z.h.HikariConfig [main] idleTimeout.....................600000
+2023-09-14 12:42:10,541 DEBUG c.z.h.HikariConfig [main] initializationFailTimeout.......1
+2023-09-14 12:42:10,542 DEBUG c.z.h.HikariConfig [main] isolateInternalQueries..........false
+2023-09-14 12:42:10,542 DEBUG c.z.h.HikariConfig [main] jdbcUrl.........................jdbc:h2:file:C:/Users/freir/myCoach.db
+2023-09-14 12:42:10,542 DEBUG c.z.h.HikariConfig [main] keepaliveTime...................0
+2023-09-14 12:42:10,542 DEBUG c.z.h.HikariConfig [main] leakDetectionThreshold..........0
+2023-09-14 12:42:10,542 DEBUG c.z.h.HikariConfig [main] maxLifetime.....................1800000
+2023-09-14 12:42:10,543 DEBUG c.z.h.HikariConfig [main] maximumPoolSize.................10
+2023-09-14 12:42:10,543 DEBUG c.z.h.HikariConfig [main] metricRegistry..................none
+2023-09-14 12:42:10,543 DEBUG c.z.h.HikariConfig [main] metricsTrackerFactory...........none
+2023-09-14 12:42:10,543 DEBUG c.z.h.HikariConfig [main] minimumIdle.....................10
+2023-09-14 12:42:10,544 DEBUG c.z.h.HikariConfig [main] password........................<masked>
+2023-09-14 12:42:10,544 DEBUG c.z.h.HikariConfig [main] poolName........................"HikariPool-1"
+2023-09-14 12:42:10,544 DEBUG c.z.h.HikariConfig [main] readOnly........................false
+2023-09-14 12:42:10,544 DEBUG c.z.h.HikariConfig [main] registerMbeans..................false
+2023-09-14 12:42:10,544 DEBUG c.z.h.HikariConfig [main] scheduledExecutor...............none
+2023-09-14 12:42:10,545 DEBUG c.z.h.HikariConfig [main] schema..........................none
+2023-09-14 12:42:10,545 DEBUG c.z.h.HikariConfig [main] threadFactory...................internal
+2023-09-14 12:42:10,545 DEBUG c.z.h.HikariConfig [main] transactionIsolation............default
+2023-09-14 12:42:10,545 DEBUG c.z.h.HikariConfig [main] username........................"sa"
+2023-09-14 12:42:10,546 DEBUG c.z.h.HikariConfig [main] validationTimeout...............5000
+2023-09-14 12:42:10,546 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Starting...
+2023-09-14 12:42:10,765 INFO c.z.h.p.HikariPool [main] HikariPool-1 - Added connection conn0: url=jdbc:h2:file:C:/Users/freir/myCoach.db user=SA
+2023-09-14 12:42:10,766 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Start completed.
+2023-09-14 12:42:10,880 DEBUG c.z.h.p.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Pool stats (total=1, active=0, idle=1, waiting=0)
+2023-09-14 12:42:10,882 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection conn1: url=jdbc:h2:file:C:/Users/freir/myCoach.db user=SA
+2023-09-14 12:42:10,896 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection conn2: url=jdbc:h2:file:C:/Users/freir/myCoach.db user=SA
+2023-09-14 12:42:10,911 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection conn3: url=jdbc:h2:file:C:/Users/freir/myCoach.db user=SA
+2023-09-14 12:42:10,928 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection conn4: url=jdbc:h2:file:C:/Users/freir/myCoach.db user=SA
+2023-09-14 12:42:10,944 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection conn5: url=jdbc:h2:file:C:/Users/freir/myCoach.db user=SA
+2023-09-14 12:42:10,962 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection conn6: url=jdbc:h2:file:C:/Users/freir/myCoach.db user=SA
+2023-09-14 12:42:10,976 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection conn7: url=jdbc:h2:file:C:/Users/freir/myCoach.db user=SA
+2023-09-14 12:42:10,992 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection conn8: url=jdbc:h2:file:C:/Users/freir/myCoach.db user=SA
+2023-09-14 12:42:11,008 DEBUG c.z.h.p.HikariPool$PoolEntryCreator [HikariPool-1 connection adder] HikariPool-1 - Added connection conn9: url=jdbc:h2:file:C:/Users/freir/myCoach.db user=SA
+2023-09-14 12:42:11,022 DEBUG c.z.h.p.HikariPool [HikariPool-1 connection adder] HikariPool-1 - After adding stats (total=10, active=0, idle=10, waiting=0)
+2023-09-14 12:42:12,185 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-09-14 12:42:12,416 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	c.p.M.c.HeadquarterController:
+	{DELETE [/headquarter/{id}]}: deleteHeadquarter(long)
+	{POST [/headquarter]}: addHeadquarter(Headquarter)
+	{PUT [/headquarter/{id}]}: modifyHeadquarter(Headquarter,long)
+	{GET [/headquarters]}: getHeadquarters()
+	{GET [/headquarter/{id}]}: getHeadquarterById(long)
+2023-09-14 12:42:12,419 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	c.p.M.c.PhisiotherapistController:
+	{PUT [/phisiotherapist/{id}]}: modifyPhisiotherapist(Phisiotherapist,long)
+	{DELETE [/phisiotherapist/{id}]}: deletePhisiotherapist(long)
+	{GET [/phisiotherapist/{id}]}: getPhisiotherapistById(long)
+	{GET [/phisiotherapists]}: getPhisiotherapist()
+	{POST [/headquarter/{headquarterId}/phisiotherapist]}: addPhisiotherapist(Phisiotherapist,long)
+2023-09-14 12:42:12,420 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	c.p.M.c.TrainerController:
+	{GET [/trainer/{id}]}: getTrainerById(long)
+	{GET [/trainers]}: getTrainers()
+	{DELETE [/trainer/{id}]}: deleteTrainer(long)
+	{POST [/headquarter/{headquarterId}/trainer]}: addTrainer(Trainer,long)
+	{PUT [/trainer/{id}]}: modifyTrainer(Trainer,long)
+2023-09-14 12:42:12,421 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	c.p.M.c.UserController:
+	{POST [/user]}: addUser(User)
+	{DELETE [/user/{id}]}: deleteUser(long)
+	{GET [/user/{id}]}: getUserById(long)
+	{GET [/users]}: getUsers()
+	{PUT [/user/{id}]}: modifyUser(User,long)
+2023-09-14 12:42:12,423 DEBUG o.s.w.s.h.AbstractHandlerMethodMapping [main] 
+	o.s.b.a.w.s.e.BasicErrorController:
+	{ [/error]}: error(HttpServletRequest)
+	{ [/error], produces [text/html]}: errorHtml(HttpServletRequest,HttpServletResponse)
+2023-09-14 12:42:12,431 DEBUG o.s.w.s.h.AbstractDetectingUrlHandlerMapping [main] 'beanNameHandlerMapping' {}
+2023-09-14 12:42:12,451 DEBUG o.s.w.s.h.SimpleUrlHandlerMapping [main] 'resourceHandlerMapping' {/webjars/**=ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]], /**=ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]}
+2023-09-14 12:42:12,556 INFO o.a.j.l.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2023-09-14 12:42:12,594 INFO o.s.b.StartupInfoLogger [main] Started MyCoachApplication in 4.093 seconds (process running for 4.588)
+2023-09-14 12:42:19,261 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'

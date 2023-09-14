@@ -18,10 +18,12 @@ public class BookingServiceImpl implements BookingService{
 
     @Autowired
     private BookingRepository bookingRepository;
+
     @Autowired
     private UserRepository userRepository;
     @Autowired
     private TrainerRepository trainerRepository;
+
 
 
     @Override
@@ -36,24 +38,29 @@ public class BookingServiceImpl implements BookingService{
                 .orElseThrow(BookingNotFoundException::new);
     }
 
+
     @Override
     public List<Booking> findByTrainer(int bookingId) {
 
         return bookingRepository.findByTrainerId(bookingId);
     }
 
+
+
+
     @Override
     public Booking modifyBooking(Booking newBooking, Long id) throws BookingNotFoundException{
         Booking booking = bookingRepository.findById(id)
                 .orElseThrow(BookingNotFoundException::new);
-        booking.setBookingDate(newBooking.getBookingDate());
-        booking.setStartTime(newBooking.getStartTime());
-        booking.setDuration(newBooking.getDuration());
+        //booking.setBookingDate(newBooking.getBookingDate());
+        //booking.setStartTime(newBooking.getStartTime());
+        //booking.setDuration(newBooking.getDuration());
         booking.setTools(newBooking.isTools());
         booking.setPaid(newBooking.isPaid());
 
         return bookingRepository.save(booking);
     }
+
 
     @Override
     public Booking addBookingTrainer(Booking booking, User user, Trainer trainer) {
@@ -62,12 +69,17 @@ public class BookingServiceImpl implements BookingService{
         return bookingRepository.save(booking);
 
     }
+
+
     @Override
     public Booking addBookingPhisio(Booking booking, User user, Phisiotherapist phisiotherapist) {
         booking.setUser(user);
         booking.setPhisiotherapist(phisiotherapist);
         return bookingRepository.save(booking);
     }
+
+
+
 
     @Override
     public Booking deleteBooking(Long id) throws BookingNotFoundException{
@@ -77,3 +89,5 @@ public class BookingServiceImpl implements BookingService{
         return booking;
     }
 }
+
+

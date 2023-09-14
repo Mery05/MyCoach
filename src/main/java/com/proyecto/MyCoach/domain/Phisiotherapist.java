@@ -47,4 +47,7 @@ public class Phisiotherapist {
     @JsonBackReference("value = headquarter-phiotherapist")
     private Headquarter headquarter;
 
+
+
+
 }

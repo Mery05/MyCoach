@@ -17,19 +17,14 @@ import java.time.LocalTime;
 public class Booking {
 
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column (name = "booking_date")
-    @JsonFormat (pattern = "dd-MM-yyyy")
-    private LocalDate bookingDate;
-    @Column (name = "start_time")
-    private LocalTime startTime;
-    @Column
-    private float duration;
+
     @Column
     private boolean tools;
     @Column
     private boolean paid;
+
 
     @ManyToOne
     @JoinColumn (name = "user_id")
@@ -45,4 +40,8 @@ public class Booking {
     @JoinColumn (name = "phisiotherapist_id")
     @JsonBackReference ("value = phisiotherapist-booking")
     private Phisiotherapist phisiotherapist;
+
+
+
+
 }

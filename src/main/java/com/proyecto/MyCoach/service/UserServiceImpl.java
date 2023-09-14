@@ -2,6 +2,7 @@ package com.proyecto.MyCoach.service;
 
 import com.proyecto.MyCoach.domain.User;
 import com.proyecto.MyCoach.exception.UserNotFoundException;
+
 import com.proyecto.MyCoach.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -88,3 +88,5 @@ public class HeadquarterController {
         return new ResponseEntity<>(badRequestErrorMessage, HttpStatus.BAD_REQUEST);
     }
 }
+
+

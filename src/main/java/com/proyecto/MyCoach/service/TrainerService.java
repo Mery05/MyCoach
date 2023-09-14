@@ -12,7 +12,6 @@ public interface TrainerService {
     List<Trainer> findAllTrainers();
 
     Trainer findById(Long id) throws TrainerNotFoundException;
-
     Trainer addTrainer(Trainer trainer, Headquarter headquarter) throws TrainerNotFoundException, HeadquarterNotFoundException;
 
     Trainer modifyTrainer(Trainer trainer, Long id) throws TrainerNotFoundException;
@@ -20,3 +19,5 @@ public interface TrainerService {
     Trainer deleteTrainer(Long id) throws TrainerNotFoundException;
 
 }
+
+

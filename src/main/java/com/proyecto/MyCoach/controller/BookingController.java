@@ -1,9 +1,8 @@
+
+
 package com.proyecto.MyCoach.controller;
 
-import com.proyecto.MyCoach.domain.Booking;
-import com.proyecto.MyCoach.domain.Phisiotherapist;
-import com.proyecto.MyCoach.domain.Trainer;
-import com.proyecto.MyCoach.domain.User;
+import com.proyecto.MyCoach.domain.*;
 import com.proyecto.MyCoach.exception.*;
 import com.proyecto.MyCoach.repository.PhisiotherapistRepository;
 import com.proyecto.MyCoach.repository.TrainerRepository;
@@ -30,29 +29,29 @@ public class BookingController {
     private BookingService bookingService;
 
     @Autowired
-    private UserRepository userRepository;
-    @Autowired
     private TrainerRepository trainerRepository;
-
+    @Autowired
+    private UserRepository userRepository;
     @Autowired
     private PhisiotherapistRepository phisiotherapistRepository;
 
     private final Logger logger = LoggerFactory.getLogger(BookingController.class);
 
+
     @GetMapping("/bookings")
     public ResponseEntity<List<Booking>> getBookings(){
-        logger.info("Obtener lista de reservas");
         List<Booking> bookings;
         bookings = bookingService.findAllBookings();
+        logger.info("Listar todos los centros");
         return ResponseEntity.ok(bookings);
     }
-
-    @GetMapping ("/booking/{id}")
-    public ResponseEntity <Booking> getBookingById (@PathVariable long id) throws BookingNotFoundException {
+    @GetMapping("/booking/{id}")
+    public ResponseEntity<Booking> getBookingById(@PathVariable long id) throws BookingNotFoundException {
         Booking booking = bookingService.findById(id);
         logger.info("Buscar reservas por id");
         return ResponseEntity.ok(booking);
     }
+
 
     //Operación de filtrado de reservas por entrenador
     @GetMapping("/booking")
@@ -70,11 +69,14 @@ public class BookingController {
         return bookings;
     }
 
+
     @PostMapping("/user/{userId}/trainer/{trainerId}/booking")
     public ResponseEntity<Booking> addBookingTrainer (@Validated @RequestBody Booking booking, @PathVariable long userId, @PathVariable long trainerId) throws UserNotFoundException, TrainerNotFoundException {
+        logger.info("empieza a buscar un usuario");
         User user = userRepository.findById(userId)
                 .orElseThrow(UserNotFoundException::new);
-        logger.info("Buscando usuario por id");
+        logger.info("Usuario encontrado");
+        logger.info("empieza a buscar un entrenador");
         Trainer trainer = trainerRepository.findById(trainerId)
                 .orElseThrow(TrainerNotFoundException::new);
         logger.info("Buscando entrenador por id");
@@ -97,6 +99,7 @@ public class BookingController {
         return ResponseEntity.status(HttpStatus.CREATED).body(newBooking);
     }
 
+
     @DeleteMapping("/booking/{id}")
     public ResponseEntity<Booking> deleteBooking (@PathVariable long id)throws BookingNotFoundException{
         Booking booking = bookingService.deleteBooking(id);
@@ -104,7 +107,7 @@ public class BookingController {
         return ResponseEntity.noContent().build();
     }
 
-    @PutMapping ("booking/{id}")
+    @PutMapping("booking/{id}")
     public ResponseEntity<Booking> modifyBooking (@RequestBody Booking booking, @PathVariable long id) throws BookingNotFoundException{
         Booking newBooking = bookingService.modifyBooking(booking, id);
         logger.info("modificar un reserva");
@@ -136,4 +139,8 @@ public class BookingController {
         ErrorMessage badRequestErrorMessage = new ErrorMessage(400, "Bad Request", errors);
         return new ResponseEntity<>(badRequestErrorMessage, HttpStatus.BAD_REQUEST);
     }
+
+
 }
+
+

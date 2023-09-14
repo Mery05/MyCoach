@@ -19,9 +19,12 @@ public interface BookingService {
     Booking modifyBooking(Booking booking, Long id) throws BookingNotFoundException;
 
     Booking addBookingTrainer (Booking booking, User user, Trainer trainer);
+    //Booking addBooking(Booking booking, User user);
 
     Booking addBookingPhisio (Booking booking, User user, Phisiotherapist phisiotherapist);
 
     Booking deleteBooking(Long id) throws BookingNotFoundException;
 
 }
+
+

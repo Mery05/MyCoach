@@ -10,7 +10,7 @@ import java.util.List;
 public interface PhisiotherapistService {
 
     List<Phisiotherapist> findAllPhisiotherapist();
-    List<Phisiotherapist> findByHeadquarter(int id);
+    //List<Phisiotherapist> findByHeadquarter(int id);
 
     Phisiotherapist findById(Long id) throws PhisiotherapistNotFoundException;
 
@@ -20,3 +20,5 @@ public interface PhisiotherapistService {
 
     Phisiotherapist deletePhisiotherapist(Long id) throws PhisiotherapistNotFoundException;
 }
+
+

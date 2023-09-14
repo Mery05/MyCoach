@@ -29,6 +29,7 @@ public class TrainerController {
 
     @Autowired
     private HeadquarterService headquarterService;
+
     private final Logger logger = LoggerFactory.getLogger(TrainerController.class);
 
     @GetMapping("/trainers")
@@ -46,6 +47,7 @@ public class TrainerController {
         return ResponseEntity.ok(trainer);
     }
 
+
     @PostMapping("/headquarter/{headquarterId}/trainer")
     public ResponseEntity<Trainer> addTrainer (@Validated @RequestBody Trainer trainer, @PathVariable long headquarterId) throws TrainerNotFoundException, HeadquarterNotFoundException {
         Headquarter headquarter = headquarterService.findById(headquarterId);
@@ -54,6 +56,8 @@ public class TrainerController {
         logger.info("registrar un entrenador en un centro");
         return ResponseEntity.status(HttpStatus.CREATED).body(newTrainer);
     }
+
+
 
     @DeleteMapping ("/trainer/{id}")
     public ResponseEntity<Trainer> deleteTrainer (@PathVariable long id)throws TrainerNotFoundException{
@@ -94,3 +98,5 @@ public class TrainerController {
         return new ResponseEntity<>(badRequestErrorMessage, HttpStatus.BAD_REQUEST);
     }
 }
+
+

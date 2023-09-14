@@ -12,5 +12,5 @@ public interface HeadquarterRepositoy extends CrudRepository<Headquarter, Long> 
 
     List<Headquarter> findAll();
 
-    List<Headquarter> findByBookingId(int bookingId);
+    //List<Headquarter> findByBookingId(int bookingId);
 }
