@@ -10,5 +10,5 @@ import java.util.List;
 public interface PhisiotherapistRepository extends CrudRepository<Phisiotherapist, Long> {
 
     List<Phisiotherapist> findAll();
-    //List<Phisiotherapist> findByHeadquarterId(int headquarterId);
+    List<Phisiotherapist> findByHeadquarterId(int headquarterId);
 }

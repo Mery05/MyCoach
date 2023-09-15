@@ -49,7 +49,7 @@ public class PhisiotherapistController {
         logger.info("buscar un fisio por id");
         return ResponseEntity.ok(phisiotherapist);
     }
-/*
+
     //Operación de filtrado de fisios por centro
     @GetMapping("/phisiotherapist")
     public List<Phisiotherapist> getPhisiotherapist(@RequestParam(name = "headquarter-phisiotherapist", required = false, defaultValue = "") String headquarterId) throws PhisiotherapistNotFoundException{
@@ -66,7 +66,9 @@ public class PhisiotherapistController {
         return phisiotherapists;
     }
 
- */
+
+
+
 
     @PostMapping("/headquarter/{headquarterId}/phisiotherapist")
     public ResponseEntity<Phisiotherapist> addPhisiotherapist (@Validated @RequestBody Phisiotherapist phisiotherapist, @PathVariable long headquarterId) throws PhisiotherapistNotFoundException, HeadquarterNotFoundException {

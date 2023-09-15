@@ -52,7 +52,7 @@ public class BookingController {
         return ResponseEntity.ok(booking);
     }
 
-
+/*
     //Operación de filtrado de reservas por entrenador
     @GetMapping("/booking")
     public List<Booking> getBookings(@RequestParam(name = "trainer-booking", required = false, defaultValue = "") String trainerId) throws BookingNotFoundException{
@@ -68,6 +68,8 @@ public class BookingController {
         }
         return bookings;
     }
+
+ */
 
 
     @PostMapping("/user/{userId}/trainer/{trainerId}/booking")

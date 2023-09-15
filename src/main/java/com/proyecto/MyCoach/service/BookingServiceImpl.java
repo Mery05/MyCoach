@@ -38,12 +38,14 @@ public class BookingServiceImpl implements BookingService{
                 .orElseThrow(BookingNotFoundException::new);
     }
 
-
+/*
     @Override
     public List<Booking> findByTrainer(int bookingId) {
 
         return bookingRepository.findByTrainerId(bookingId);
     }
+
+ */
 
 
 
@@ -52,9 +54,9 @@ public class BookingServiceImpl implements BookingService{
     public Booking modifyBooking(Booking newBooking, Long id) throws BookingNotFoundException{
         Booking booking = bookingRepository.findById(id)
                 .orElseThrow(BookingNotFoundException::new);
-        //booking.setBookingDate(newBooking.getBookingDate());
-        //booking.setStartTime(newBooking.getStartTime());
-        //booking.setDuration(newBooking.getDuration());
+        booking.setBookingDate(newBooking.getBookingDate());
+        booking.setStartTime(newBooking.getStartTime());
+        booking.setDuration(newBooking.getDuration());
         booking.setTools(newBooking.isTools());
         booking.setPaid(newBooking.isPaid());
 

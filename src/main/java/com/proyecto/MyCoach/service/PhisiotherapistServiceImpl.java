@@ -21,13 +21,15 @@ public class PhisiotherapistServiceImpl implements PhisiotherapistService{
 
         return phisiotherapistRepository.findAll();
     }
-/*
+
     @Override
     public List<Phisiotherapist> findByHeadquarter(int phisiotherapistId) {
         return phisiotherapistRepository.findByHeadquarterId(phisiotherapistId);
     }
 
- */
+
+
+
 
 
     @Override

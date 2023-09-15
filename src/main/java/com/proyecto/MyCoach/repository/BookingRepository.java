@@ -12,5 +12,5 @@ public interface BookingRepository extends CrudRepository<Booking, Long> {
 
     List <Booking> findAll();
 
-    List<Booking> findByTrainerId(int trainerId);
+    //List<Booking> findByTrainerId(int trainerId);
 }
